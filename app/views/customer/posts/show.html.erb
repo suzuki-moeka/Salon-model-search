@@ -1,0 +1,14 @@
+<div>
+  <!--title-->
+  <%= @post.title %>
+  <!--画像-->
+  <%= image_tag @post.image, size:'100x100' %>
+  <!--名前-->
+  <%= @post.customer.last_name + @post.customer.first_name %>
+  <!--内容-->
+  <%= @post.post %>
+  <!--金額-->
+  <%= @post.price %>
+  <!--希望日時-->
+  <%#= @post.datetime %>
+</div>

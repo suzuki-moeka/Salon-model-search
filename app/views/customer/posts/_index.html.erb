@@ -1,0 +1,16 @@
+<% posts.each do |post| %>
+    <div>
+      <!--title-->
+      <%= link_to customer_post_path(post.id) do %>
+        <%= post.title %>
+      <% end %>
+      <!--画像-->
+      <%= image_tag post.image, size:'100x100' %>
+      <!--内容-->
+      <%= post.post %>
+      <!--金額-->
+      <%= post.price %>
+      <!--希望日時-->
+      <%= post.timedate %>
+    </div>
+<% end %>
