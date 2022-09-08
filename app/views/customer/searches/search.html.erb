@@ -1,0 +1,52 @@
+<!--<table class="table table-hover table-inverse">-->
+<div class="container">
+  <h2>検索結果</h2>
+  <% if @range == "post" %>
+    <div class="row">
+      <% @posts.each do |post| %>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3 mb-sm-0">
+          <div class="card shadow">
+            <!--画像-->
+            <% if post.image.attached? %>
+              <%= image_tag post.image, class: 'card-img-top img-fluid search-card-img' %>
+            <% else %>
+              <%= image_tag 'no_image.jpg', class: 'card-img-top img-fluid search-card-img' %>
+            <% end %>
+            <div class="card-body">
+              <!--title-->
+              <%= link_to customer_post_path(post.id) do %>
+                <h3><%= post.title %></h3>
+              <% end %>
+
+              <div>
+                <!--内容-->
+                <%= truncate(post.post, omission: "...") %>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  金額
+                </div>
+                <div class="col-md-8">
+                  <!--金額-->
+                  <%= post.price %>円
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  希望日時
+                </div>
+                <div class="col-md-8">
+                  <!--希望日時-->
+                  <%= post.timedate %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<!--</table>-->

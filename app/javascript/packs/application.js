@@ -8,6 +8,23 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import "jquery";
+import "popper.js";
+import "bootstrap";
+import "../stylesheets/application"
+
+$(document).on('turbolinks:load', function() {
+  // ハンバーガーメニューをクリックしたら.hum-menu-contentのd-noneをつけたりはずしたりする。
+  $('.hum-menu').click(function () {
+    $('.hum-menu-content').toggleClass('d-none');
+  })
+
+  // ハンバーガーメニュー表示しているときの背景をクリックしたら.hum-menu-contentのd-noneをつけたりはずしたりする。
+  $('.hum-menu-content').click(function () {
+    $('.hum-menu-content').toggleClass('d-none');
+  })
+});
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

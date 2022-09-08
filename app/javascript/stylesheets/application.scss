@@ -1,0 +1,39 @@
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  line-height: 2;
+}
+
+header {
+  background-color: #CD7996;
+  color: #fff;
+}
+
+header a,
+header a:hover,
+.hum-menu-content a,
+.hum-menu-content a:hover {
+  color: #fff;
+}
+
+.hum-menu {
+  background-color: #CD7996;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+}
+
+.hum-menu-content {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(205, 121, 150, .8);
+  z-index: 8888;
+}
+
+.search-card-img {
+  width: auto;
+  height: 200px;
+  object-fit: cover;
+}

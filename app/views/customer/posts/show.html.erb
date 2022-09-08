@@ -1,8 +1,12 @@
-<div>
+<div class="container">
   <!--title-->
   <%= @post.title %>
   <!--画像-->
-  <%= image_tag @post.image, size:'100x100' %>
+  <% if @post.image.attached? %>
+    <%= image_tag @post.image, class: 'img-fluid' %>
+  <% else %>
+    <%= image_tag 'no_image.jpg', class: 'img-fluid' %>
+  <% end %>
   <!--名前-->
   <%= @post.customer.last_name + @post.customer.first_name %>
   <!--内容-->

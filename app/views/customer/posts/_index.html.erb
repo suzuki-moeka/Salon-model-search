@@ -5,11 +5,13 @@
         <%= post.title %>
       <% end %>
       <!--画像-->
-      <%= image_tag post.image, size:'100x100' %>
+      <% if post.image.attached? %>
+        <%= image_tag post.image, size:'100x100' %>
+      <% end %>
       <!--内容-->
       <%= post.post %>
       <!--金額-->
-      <%= post.price %>
+      <%= post.price %>円
       <!--希望日時-->
       <%= post.timedate %>
     </div>
