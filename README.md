@@ -1,4 +1,4 @@
-# <Salon model search>
+# Salon model search
 
 ## サイト概要
 ### サイトテーマ
