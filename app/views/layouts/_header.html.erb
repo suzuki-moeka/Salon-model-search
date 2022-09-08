@@ -1,103 +1,61 @@
-<!--<header class="shadow-sm">-->
-<!--  <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:#CD7996;">-->
-<!--    <div class="container">-->
-<!--      <a class="navbar-brand " href="/">-->
-<!--        <%= image_tag'logo.png', size:"250x100" %>-->
-<!--      </a>-->
-<!--       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--        <span class="navbar-toggler-icon"></span>-->
-<!--       </button>-->
-<!--    </div>-->
-<!--      <div class="collapse navbar-collapse" id="navbarNavDropdown">-->
-<!--        <ul class="navbar-nav ml-auto">-->
-        <!--customerログイン後のヘッダー-->
-<!--        <% if customer_signed_in? %>-->
-<!--          <li>-->
-            <%#= link_to "マイページ", public_customer_path(current_customer) %>
-<!--          </li>-->
-<!--          <li>-->
-<!--            <%= link_to "サロン一覧",customer_posts_path %>-->
-<!--          </li>-->
-<!--          <li>-->
-<!--            <%= link_to '投稿フォーム', new_customer_post_path %>-->
-<!--          </li>-->
-<!--          <li>-->
-<!--            <%= link_to "ログアウト",destroy_customer_session_path, method: :delete %>-->
-<!--          </li>-->
-        <!--adminログイン後のヘッダー-->
-<!--        <% elsif admin_signed_in? %>-->
-<!--          <li>-->
-            <%#= link_to "会員一覧", admin_customers_path %>
-<!--          </li>-->
-<!--          <li>-->
-            <%#= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-<!--          </li>-->
-        <!--両者ログイン前-->
-<!--        <% else %>-->
-<!--          <li>-->
-            <%#= link_to "About", public_homes_about_path %>
-<!--          </li>-->
-<!--          <li>-->
-            <!--新規メンバー登録-->
-<!--          </li>-->
-<!--          <li>-->
-<!--            <%= link_to "ログイン", new_customer_session_path %>-->
-<!--          </li>-->
-<!--        <% end %>-->
-<!--        </ul>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </nav>-->
-<!--</header>-->
-
 <header class="w-100">
   <nav class="d-none d-md-block pb-1">
     <div class="container text-center">
-      <%= image_tag'logo.png', size:"180x50" %>
-      <ul class="list-unstyled list-inline">
-        <li class="list-inline-item">
-          <%= link_to "サロン一覧", customer_posts_path %>
-        </li>
-        <li class="list-inline-item">
-          <%= link_to '投稿フォーム', new_customer_post_path %>
-        </li>
-        <% if customer_signed_in? %>
+      <a href="/">
+        <%= image_tag'logo.png', size:"180x50" %>
+      </a>
+        <ul class="list-unstyled list-inline">
           <li class="list-inline-item">
-            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+            <%= link_to "サロン一覧", customer_posts_path %>
           </li>
-        <% else %>
           <li class="list-inline-item">
-            <%= link_to "ログイン", new_customer_session_path %>
+            <%= link_to '投稿フォーム', new_customer_post_path %>
           </li>
-        <% end %>
-      </ul>
+          <% if customer_signed_in? %>
+            <li class="list-inline-item">
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+            </li>
+          <%# elsif admin_signed_in? %>
+  
+          <% else %>
+            <li class="list-inline-item">
+              <%= link_to "ログイン", new_customer_session_path %>
+            </li>
+          <% end %>
+        </ul>
     </div>
   </nav>
 </header>
 
 <nav class="d-block d-md-none hum-menu position-fixed">
-  --
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 </nav>
 
 <div class="hum-menu-content position-fixed w-100 h-100 d-none">
   <div class="h-100 w-100 d-flex flex-column justify-content-center align-items-center">
-    <%= image_tag'logo.png', size:"180x50" %>
-    <ul class="list-unstyled text-center my-3">
-      <li>
-        <%= link_to "サロン一覧", customer_posts_path %>
-      </li>
-      <li>
-        <%= link_to '投稿フォーム', new_customer_post_path %>
-      </li>
-      <% if customer_signed_in? %>
+    <a href="/">
+      <%= image_tag'logo.png', size:"180x50" %>
+    </a>
+      <ul class="list-unstyled text-center my-3">
         <li>
-          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+          <%= link_to "サロン一覧", customer_posts_path %>
         </li>
-      <% else %>
         <li>
-          <%= link_to "ログイン", new_customer_session_path %>
+          <%= link_to '投稿フォーム', new_customer_post_path %>
         </li>
-      <% end %>
-    </ul>
+        <% if customer_signed_in? %>
+          <li>
+            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+          </li>
+        <%# elsif admin_signed_in? %>
+  
+        <% else %>
+          <li>
+            <%= link_to "ログイン", new_customer_session_path %>
+          </li>
+        <% end %>
+      </ul>
   </div>
 </div>

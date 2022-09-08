@@ -12,6 +12,7 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"
+import '@fortawesome/fontawesome-free/js/all'
 
 $(document).on('turbolinks:load', function() {
   // ハンバーガーメニューをクリックしたら.hum-menu-contentのd-noneをつけたりはずしたりする。
@@ -28,3 +29,4 @@ $(document).on('turbolinks:load', function() {
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
