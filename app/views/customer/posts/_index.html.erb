@@ -1,18 +1,20 @@
-<% posts.each do |post| %>
-    <div>
-      <!--title-->
-      <%= link_to customer_post_path(post.id) do %>
-        <%= post.title %>
-      <% end %>
-      <!--画像-->
-      <% if post.image.attached? %>
-        <%= image_tag post.image, size:'100x100' %>
-      <% end %>
-      <!--内容-->
-      <%= post.post %>
-      <!--金額-->
-      <%= post.price %>円
-      <!--希望日時-->
-      <%= post.timedate %>
-    </div>
-<% end %>
+<div class="jumbotron bottom">
+  <% posts.each do |post| %>
+      <div>　
+        <!--title-->
+        <%= link_to customer_post_path(post.id) do %>
+          <%= post.title %>
+        <% end %>
+        <!--画像-->
+        <% if post.image.attached? %>
+          <%= image_tag post.image, size:'100x100' %>
+        <% end %>
+        <!--内容-->
+        <%= post.post %>
+        <!--金額-->
+        <%= post.price %>円
+        <!--希望日時-->
+        <%= post.timedate %>
+      </div>
+  <% end %>
+</div>

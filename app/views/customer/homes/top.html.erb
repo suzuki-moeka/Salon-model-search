@@ -1,9 +1,27 @@
-<h6>美容院・カットモデル一覧</h6>
-　<%= render "customer/posts/index", posts: @posts %>
-<h6>キーワード検索</h6>
-  <%= render "customer/searches/index" %>
-<h6>タグ検索</h6>
-  <%#= render 'form', post: @post %>
-<h6>いいねランキング</h6>
-<h6>フォローランキング</h6>
-<h6>希望投稿</h6>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="jumbotron">
+        <h5>美容院・カットモデル一覧</h5>
+        　<%= render "customer/posts/index", posts: @posts %>
+      </div>
+      <div class="jumbotron">
+        <h5>キーワード検索</h5>
+          <%= render "customer/searches/index" %>
+      </div>
+      <div class="jumbotron">
+        <h5>タグ検索</h5>
+          <%#= render 'customer/tags/form', post: @post %>
+      </div>
+      <div class="jumbotron">
+        <h5>いいねランキング</h5>
+      </div>
+      <div class="jumbotron">
+        <h5>フォローランキング</h5>
+      </div>
+      <div class="jumbotron">
+        <h5>希望投稿</h5>
+      </div>
+    </div>
+  </div>
+</div>

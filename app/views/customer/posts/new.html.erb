@@ -23,7 +23,7 @@
     <div class="form-group">
       <%= f.label :post, "内容" %>
       <%= f.text_area :post, class: 'form-control' %>
-      <%= render 'form', post: post %>
+      <%= render 'customer/tags/form', post: @post %>
     </div>
     <div class="form-group">
       <%= f.label :timedate, "希望日時" %>

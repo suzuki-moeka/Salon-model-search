@@ -29,7 +29,7 @@ header a:hover,
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(205, 121, 150, .8);
+  background-color: rgba(205, 121, 150, .9);
   z-index: 8888;
 }
 
@@ -37,4 +37,12 @@ header a:hover,
   width: auto;
   height: 200px;
   object-fit: cover;
+}
+
+.jumbotron {
+  background-color: #f8e8ed;
+}
+
+.bottom {
+    box-shadow: 3px 3px 3px 3px #fff;
 }
