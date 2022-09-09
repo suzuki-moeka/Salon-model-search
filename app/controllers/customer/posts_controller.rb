@@ -6,8 +6,12 @@ class Customer::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
-    @post.save
-    redirect_to root_path
+    if @post.save
+      @post.save_tags(params[:post][:tag])
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def index
@@ -19,6 +23,16 @@ class Customer::PostsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      @post.save_tags(params[:post][:tag])
+      redirect_to post_path(@post)
+    else
+      render :edit
+    end
   end
 
     private

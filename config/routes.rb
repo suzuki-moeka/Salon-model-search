@@ -16,5 +16,7 @@ devise_for :customer, skip: [:passwords], controllers: {
   root to: 'customer/homes#top'
 
   get "searches" => "customer/searches#search"
+
+  resources :tags, only: %w[index show destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

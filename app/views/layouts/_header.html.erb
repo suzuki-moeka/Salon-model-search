@@ -16,7 +16,7 @@
               <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
             </li>
           <%# elsif admin_signed_in? %>
-  
+
           <% else %>
             <li class="list-inline-item">
               <%= link_to "ログイン", new_customer_session_path %>
@@ -50,7 +50,7 @@
             <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
           </li>
         <%# elsif admin_signed_in? %>
-  
+
         <% else %>
           <li>
             <%= link_to "ログイン", new_customer_session_path %>
