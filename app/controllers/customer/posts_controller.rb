@@ -7,7 +7,7 @@ class Customer::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
     if @post.save
-      @post.save_tags(params[:post][:tag])
+      #@post.save_tags(params[:post][:tag])
       redirect_to root_path
     else
       render :new

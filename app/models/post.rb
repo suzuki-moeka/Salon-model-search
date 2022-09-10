@@ -7,11 +7,21 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :post, presence: true
 
-  def self.looks(search, word)
+  def self.titlelooks(search, word)
     if search == "perfect_match"
       @posts = Post.where("title LIKE ?", "#{word}")
     elsif search == "partial_match"
       @posts = Post.where("title LIKE ?","%#{word}%")
+    else
+      @posts = Post.all
+    end
+  end
+
+  def self.postlooks(search, word)
+    if search == "perfect_match"
+      @posts = Post.where("post LIKE ?", "#{word}")
+    elsif search == "partial_match"
+      @posts = Post.where("post LIKE ?","%#{word}%")
     else
       @posts = Post.all
     end

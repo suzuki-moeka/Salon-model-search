@@ -1,0 +1,2 @@
+module Customer::GuestsHelper
+end

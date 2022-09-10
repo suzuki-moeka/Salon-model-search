@@ -13,10 +13,16 @@ devise_for :customer, skip: [:passwords], controllers: {
   registrations: 'customer/registrations'
 }
 
+  devise_scope :customer do
+    post 'customer/guest_sign_in', to: 'customer/sessions#guest_sign_in'
+  end
+
   root to: 'customer/homes#top'
-
+  get "customer/homes/about" => "homes#about"
+  #post 'customer/guests/guest_sign_in', to: 'guests#new_guest'
+  
   get "searches" => "customer/searches#search"
-
+  
   resources :tags, only: %w[index show destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
