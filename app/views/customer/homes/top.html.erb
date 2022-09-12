@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 mx-auto">
+    <div class="col-md-9 mx-auto">
       <div class="jumbotron">
-        <h5>美容院・カットモデル一覧</h5>
+        <h5>新着サロン一覧</h5>
         　<%= render "customer/posts/index", posts: @posts %>
       </div>
       <div class="jumbotron">
@@ -13,7 +13,8 @@
         <h5>タグ検索</h5>
       </div>
       <div class="jumbotron">
-        <h5>いいねランキング</h5>
+        <h5>お気に入り登録者数ランキング</h5>
+          <%#= render "customer/ranks/rank", post: @post_ranks %>
       </div>
       <div class="jumbotron">
         <h5>フォローランキング</h5>

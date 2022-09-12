@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <h4>
+        My Page
+      </h4>
+        <div class="card shadow  align-items-center">
+          <div>
+            登録情報
+          </div>
+          <div>
+            名前：<%= @customer.full_name %>
+          </div>
+          <div>
+            郵便番号：<%= @customer.postcode %>
+          </div>
+          <div>
+            住所：<%= @customer.address %>
+          </div>
+          <div>
+            電話番号：<%= @customer.phone_number %>
+          </div>
+          <div>
+            メールアドレス：<%= @customer.email %>
+          </div>
+          　<%= link_to "登録情報変更はこちら", edit_customer_customer_path(current_customer) %>
+          <div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,16 +1,24 @@
 <% posts.each do |post| %>
   <div class="jumbotron bottom">
-      <!--title-->
-      <%= link_to customer_post_path(post.id) do %>
-        <h5><%= post.title %></h5><br>
-      <% end %>
+    <!--いいね-->
+    <div id="favorite_buttons_<%= post.id %>">
+      <%= render "customer/posts/like", post: post %>
+    </div>
+    <!--title-->
+    <%= link_to customer_post_path(post.id) do %>
+      <h5><%= post.title %></h5><br>
+    <% end %>
     <!--画像-->
     <% if post.image.attached? %>
       <%= image_tag post.image, size:'100x100' %><br>
     <% end %>
     <!--内容-->
     <%= post.post %><br>
+    <!--金額-->
     金額：<%= post.price %>円<br>
+    <!--希望日時-->
     日時：<%= post.timedate %><br>
+    <!--コメント件数-->
+    <%#= link_to "#{post.post_comments.count} コメント", post_image_path(post_image.id) %>
   </div>
 <% end %>

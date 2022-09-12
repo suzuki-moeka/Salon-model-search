@@ -9,8 +9,9 @@ class Customer::SearchesController < ApplicationController
       @posts = Post.titlelooks(params[:search], params[:word])
     end
 
-    if @posts.lenght == 0
+    #if @posts.lenght == 0
       #フラッシュメッセージ設定
-    end
+    #end
   end
+
 end
