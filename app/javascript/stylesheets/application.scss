@@ -5,28 +5,34 @@ body {
   line-height: 2;
 }
 
+// .bg-img {
+//   background-image: url("../images/about.png");
+//   background-size: cover;
+//   background-position: center 60%;
+// }
+
 header {
-  background-color: #CD7996;
-  color: #fff;
+  background-color: #EBF6F7;
+  color: #805140;
 }
 
 header a,
 header a:hover,
 .hum-menu-content a,
 .hum-menu-content a:hover {
-  color: #fff;
+  color: #805140;
 }
 
 .list-inline {
-  font-family:'游ゴシック';
+  font-family:'ＭＳゴシック';
 }
 
 .my-5 {
-  font-family:'游ゴシック';
+  font-family:'ＭＳゴシック';
 }
 
 .hum-menu {
-  background-color: #CD7996;
+  background-color: #EBF6F7;
   top: 10px;
   right: 10px;
   z-index: 9999;
@@ -37,7 +43,7 @@ header a:hover,
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(205, 121, 150, .9);
+  background-color: rgba(235, 246, 247, .9);
   z-index: 8888;
 }
 
@@ -48,10 +54,9 @@ header a:hover,
 }
 
 .jumbotron {
-  background-color: #f8e8ed;
+  background-color: #FCFAF7;
 }
 
 .bottom {
-    box-shadow: 3px 3px 3px 3px #fff;
+    box-shadow: 2px 2px 2px 2px #d6c2bb;
 }
-

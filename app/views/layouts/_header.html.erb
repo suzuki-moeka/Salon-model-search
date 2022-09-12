@@ -14,6 +14,9 @@
           <!--カスタマーログイン後-->
           <% if customer_signed_in? %>
             <li class="list-inline-item">
+              <%= link_to"About", customer_homes_about_path %>
+            </li>
+            <li class="list-inline-item">
               <%= link_to "My Page", customer_customer_path(current_customer) %>
             </li>
             <li class="list-inline-item">
@@ -29,7 +32,9 @@
             </li>
           <!--両者ログイン前-->
           <% else %>
-            <!--about追加-->
+            <li class="list-inline-item">
+              <%= link_to"About", customer_homes_about_path %>
+            </li>
             <li class="list-inline-item">
               <%= link_to "ログイン", new_customer_session_path %>
             </li>
@@ -51,7 +56,7 @@
 <div class="hum-menu-content position-fixed w-100 h-100 d-none">
   <div class="h-100 w-100 d-flex flex-column justify-content-center align-items-center">
     <a href="/">
-      <%= image_tag'logo.png', size:"180x50" %>
+      <%= image_tag'logo2.png', size:"180x50" %>
     </a>
       <ul class="list-unstyled text-center my-3">
         <li>
@@ -60,6 +65,7 @@
         <li>
           <%= link_to '投稿フォーム', new_customer_post_path %>
         </li>
+        <!--カスタマーログイン後-->
         <% if customer_signed_in? %>
           <li class="list-inline-item">
             <%= link_to "My Page", customer_customer_path(current_customer) %>
@@ -67,9 +73,19 @@
           <li>
             <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
           </li>
-        <%# elsif admin_signed_in? %>
-
+        <!--管理者ログイン後-->
+        <% elsif admin_signed_in? %>
+          <li class="list-inline-item">
+            <%= link_to "メンバー一覧", admin_customers_path %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+          </li>
+        <!--両者ログイン前-->
         <% else %>
+          <li class="list-inline-item">
+            <%= link_to"About", customer_homes_about_path %>
+          </li>
           <li>
             <%= link_to "ログイン", new_customer_session_path %>
           </li>

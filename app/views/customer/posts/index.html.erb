@@ -1,18 +1,28 @@
-<% @posts.each do |post| %>
-    <div>
-      <!--title-->
-      <%= link_to customer_post_path(post.id) do %>
-        <%= post.title %>
-      <% end %>
-      <!--画像-->
-      <% if post.image.attached? %>
-        <%= image_tag post.image, size:'100x100' %>
-      <% end %>
-      <!--内容-->
-      <%= post.post %>
-      <!--金額-->
-      <%= post.price %>円
-      <!--希望日時-->
-      <%= post.timedate %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+        <% @posts.each do |post| %>
+          <div class="card shadow">
+            <div>
+              <!--title-->
+              <%= link_to customer_post_path(post.id) do %>
+                <%= post.title %><br>
+              <% end %>
+              <!--画像-->
+              <% if post.image.attached? %>
+                <%= image_tag post.image, size:'100x100' %><br>
+              <% else %>
+                <%= image_tag 'no_image.jpg', size:'100x100' %><br>
+              <% end %>
+              <!--内容-->
+              <%= post.post %><br>
+              <!--金額-->
+              <%= post.price %>円<br>
+              <!--希望日時-->
+              <%= post.timedate %><br>
+            </div>
+          </div>
+        <% end %>
     </div>
-<% end %>
+  </div>
+</div>

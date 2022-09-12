@@ -1,15 +1,19 @@
 <% post_ranks.each.with_index(1) do |post, i| %>
-  第<%= i %>位
+  <div class="jumbotron bottom">
+    第<%= i %>位
       <!--いいね数-->
-    <%= post.likes.count %>
-    <!--title-->
-    <%= link_to customer_post_path(post.id) do %>
-      <h5><%= post.title %></h5><br>
-    <% end %>
-    <!--画像-->
-    <% if post.image.attached? %>
-      <%= image_tag post.image, size:'100x100' %><br>
-    <% end %>
-    <!--内容-->
-    <%= post.post %><br>
+      <i class="fa-solid fa-heart">
+        <%= post.likes.count %>
+      </i>
+      <!--title-->
+      <%= link_to customer_post_path(post.id) do %>
+        <h5><%= post.title %></h5><br>
+      <% end %>
+      <!--画像-->
+      <% if post.image.attached? %>
+        <%= image_tag post.image, size:'100x100' %><br>
+      <% end %>
+      <!--内容-->
+      <%= post.post %><br>
+    </div>
 <% end %>

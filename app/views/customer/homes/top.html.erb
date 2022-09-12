@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-9 mx-auto">
+    <div class="col-md-10 mx-auto">
       <div class="jumbotron">
         <h5>新着サロン一覧</h5>
         　<%= render "customer/posts/index", posts: @posts %>
@@ -15,12 +15,6 @@
       <div class="jumbotron">
         <h5>お気に入り登録者数ランキング</h5>
           <%= render "customer/ranks/rank", post_ranks: @post_ranks %>
-      </div>
-      <div class="jumbotron">
-        <h5>フォローランキング</h5>
-      </div>
-      <div class="jumbotron">
-        <h5>希望投稿</h5>
       </div>
     </div>
   </div>

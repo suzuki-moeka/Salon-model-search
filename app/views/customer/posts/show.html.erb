@@ -1,38 +1,51 @@
 <div class="container">
-  <!--title-->
-  <%= @post.title %>
-  <!--画像-->
-  <% if @post.image.attached? %>
-    <%= image_tag @post.image, class: 'img-fluid' %>
-  <% else %>
-    <%= image_tag 'no_image.jpg', class: 'img-fluid' %>
-  <% end %>
-  <!--名前-->
-  <%= @post.customer.last_name + @post.customer.first_name %>
-  <!--内容-->
-  <%= @post.post %>
-  <!--金額-->
-  <%= @post.price %>
-  <!--希望日時-->
-  <%= @post.timedate %>
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card shadow">
+        <!--title-->
+        <%= @post.title %><br>
+        <!--画像-->
+        <% if @post.image.attached? %>
+          <%= image_tag @post.image, size:'200x200' %><br>
+        <% else %>
+          <%= image_tag 'no_image.jpg', size:'200x200' %><br>
+        <% end %>
+        <!--名前-->
+        <%= @post.customer.last_name + @post.customer.first_name %><br>
+        <!--内容-->
+        <%= @post.post %><br>
+        <!--金額-->
+        <%= @post.price %><br>
+        <!--希望日時-->
+        <%= @post.timedate %><br>
+        <div>
+          <p>コメント件数：<%= @post.post_comments.count %></p>
+          <% @post.post_comments.each do |post_comment| %>
+        　　  <!--名前-->
+            <%= post_comment.customer.full_name %>
+            <!--時間-->
+            <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+            <!--コメント-->
+            <%= post_comment.comment %>
+            <!--削除-->
+            <% if post_comment.customer == current_customer %>
+              <%= link_to "削除", customer_post_post_comment_path(post_comment.post, post_comment), method: :delete %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div>
-  <p>コメント件数：<%= @post.post_comments.count %></p>
-  <% @post.post_comments.each do |post_comment| %>
-    <%= post_comment.customer.full_name %>
-    <%= post_comment.created_at.strftime('%Y/%m/%d') %>
-    <%= post_comment.comment %>
-
-    <% if post_comment.customer == current_customer %>
-      <%= link_to "削除", customer_post_post_comment_path(post_comment.post, post_comment), method: :delete %>
-    <% end %>
-
-  <% end %>
-</div>
-<div>
-  <%= form_with model: [@post, @post_comment], url: customer_post_post_comments_path(@post) do |f| %>
-    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-    <%= f.submit "コメントする" %>
-  <% end %>
-</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+        <%= form_with model: [@post, @post_comment], url: customer_post_post_comments_path(@post) do |f| %>
+          <%= f.text_area :comment, placeholder: "コメントをここに" %>
+          <div>
+            <%= f.submit "コメントする" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
