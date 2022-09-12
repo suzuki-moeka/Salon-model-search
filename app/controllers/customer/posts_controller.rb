@@ -26,7 +26,7 @@ class Customer::PostsController < ApplicationController
   end
 
   private
-  
+
   def post_params
     params.require(:post).permit(:title, :price, :image, :post, :timedate)
   end

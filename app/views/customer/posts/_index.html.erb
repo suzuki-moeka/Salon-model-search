@@ -11,6 +11,8 @@
     <!--画像-->
     <% if post.image.attached? %>
       <%= image_tag post.image, size:'100x100' %><br>
+    <% else %>
+      <%= image_tag 'no_image.jpg', class: 'img-fluid' %><br>
     <% end %>
     <!--内容-->
     <%= post.post %><br>
@@ -19,6 +21,6 @@
     <!--希望日時-->
     日時：<%= post.timedate %><br>
     <!--コメント件数-->
-    <%= link_to "#{post.post_comments.count} コメント" %>
+    <%= link_to "#{post.post_comments.count} コメント", customer_post_path(post) %>
   </div>
 <% end %>
