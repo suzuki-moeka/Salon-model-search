@@ -19,6 +19,6 @@
     <!--希望日時-->
     日時：<%= post.timedate %><br>
     <!--コメント件数-->
-    <%#= link_to "#{post.post_comments.count} コメント", post_image_path(post_image.id) %>
+    <%= link_to "#{post.post_comments.count} コメント" %>
   </div>
 <% end %>

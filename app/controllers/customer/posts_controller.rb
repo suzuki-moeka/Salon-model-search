@@ -25,7 +25,8 @@ class Customer::PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-    private
+  private
+  
   def post_params
     params.require(:post).permit(:title, :price, :image, :post, :timedate)
   end

@@ -1,10 +1,10 @@
 class Customer::PostCommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
-    comment = current_customer.post_comments.new(post_comment_params)
-    comment.post_id = post.id
+    comment = @post.post_comments.new(post_comment_params)
+    comment.customer_id = current_customer.id
     comment.save
-    redirect_to post_path(post)
+    redirect_to customer_post_path(@post)
   end
 
   private
