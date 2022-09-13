@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6 mx-auto">
         <% @posts.each do |post| %>
-          <div class="card shadow">
+          <div class="jumbotron bottom">
             <div>
               <!--title-->
               <%= link_to customer_post_path(post.id) do %>
@@ -20,6 +20,10 @@
               <%= post.price %>円<br>
               <!--希望日時-->
               <%= post.timedate %><br>
+              <!--いいね数-->
+              <%= post.likes.count %><br>
+              <!--コメント件数-->
+              <%= post.post_comments.count %><br>
             </div>
           </div>
         <% end %>

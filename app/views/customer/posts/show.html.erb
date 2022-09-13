@@ -27,8 +27,12 @@
             <%= post_comment.created_at.strftime('%Y/%m/%d') %>
             <!--コメント-->
             <%= post_comment.comment %>
-            <!--削除-->
+            <!--カスタマーコメント削除-->
             <% if post_comment.customer == current_customer %>
+              <%= link_to "削除", customer_post_post_comment_path(post_comment.post, post_comment), method: :delete %>
+            <% end %>
+            <!--管理者コメント削除-->
+            <% if admin_signed_in? %>
               <%= link_to "削除", customer_post_post_comment_path(post_comment.post, post_comment), method: :delete %>
             <% end %>
           <% end %>
