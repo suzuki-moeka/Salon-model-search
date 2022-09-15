@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   root to: 'customer/homes#top'
   get "customer/homes/about" => "customer/homes#about"
   get "searches" => "customer/searches#search"
+  get "customer/posts/search_post" => "customer/posts#search_post"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

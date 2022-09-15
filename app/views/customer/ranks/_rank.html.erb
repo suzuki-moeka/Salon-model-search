@@ -11,9 +11,7 @@
       <% end %>
       <!--画像-->
       <% if post.image.attached? %>
-        <%= image_tag post.image, size:'100x100' %><br>
+        <%= image_tag post.image, size:'190x190' %><br>
       <% end %>
-      <!--内容-->
-      <%= post.post %><br>
     </div>
 <% end %>

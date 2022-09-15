@@ -1,0 +1,9 @@
+<% if customer_signed_in? %>
+  <div class="search_form">
+    <%= form_with url:  customer_posts_search_post_path, local: true, method: :get do |f| %>
+      <%#= f.text_field :search_word %>
+      <%= f.select :search_word, [["NEW OPEN", "NEW OPEN"], ["受賞歴あり", "受賞歴あり"], ["21時以降OK", "21時以降OK"], ["早朝対応可", "早朝対応可"], ["お子様同伴OK", "お子様同伴OK"], ["学生に人気", "学生に人気"], ["お手頃プライス", "お手頃プライス"]], include_blank: "選択して下さい" %>
+      <%= f.submit "検索", class: "btn btn-light rounded-pill" %>
+    <% end %>
+  </div>
+<% end %>

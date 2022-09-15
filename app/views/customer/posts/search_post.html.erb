@@ -15,10 +15,12 @@
               <%= link_to customer_post_path(post.id) do %>
                 <h3><%= post.title %></h3>
               <% end %>
+
               <div>
                 <!--内容-->
                 <%= truncate(post.post, omission: "...") %>
               </div>
+
               <div class="row">
                 <div class="col-md-4">
                   金額

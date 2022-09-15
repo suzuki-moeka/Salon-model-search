@@ -15,15 +15,17 @@
                 <%= image_tag 'no_image.jpg', size:'100x100' %><br>
               <% end %>
               <!--内容-->
-              <%= post.post %><br>
+              <%= truncate(post.post, omission: "...") %><br>
               <!--金額-->
-              <%= post.price %>円<br>
+              金額：<%= post.price %>円<br>
               <!--希望日時-->
-              <%= post.timedate %><br>
+              日時：<%= post.timedate %><br>
+              <!--タグ-->
+              タグ：<%= post.category%><br>
               <!--いいね数-->
-              <%= post.likes.count %><br>
+              いいね：<%= post.likes.count %><br>
               <!--コメント件数-->
-              <%= post.post_comments.count %><br>
+              コメント件数：<%= post.post_comments.count %><br>
             </div>
           </div>
         <% end %>

@@ -21,6 +21,11 @@ class Customer::PostsController < ApplicationController
   def edit
   end
 
+  def search_post
+     @post=Pook.new
+     @posts = Pook.search(params[:keyword])
+  end
+
   def update
     @post = Post.find(params[:id])
   end
@@ -28,6 +33,6 @@ class Customer::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :price, :image, :post, :timedate)
+    params.require(:post).permit(:title, :price, :image, :post, :timedate, :category)
   end
 end

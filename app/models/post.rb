@@ -33,4 +33,8 @@ class Post < ApplicationRecord
     end
   end
 
+  def self.search(search_word)
+    Post.where(['category LIKE ?', "#{search_word}"])
+  end
+
 end
