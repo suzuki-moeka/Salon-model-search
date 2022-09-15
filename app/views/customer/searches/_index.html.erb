@@ -1,10 +1,8 @@
-<% if customer_signed_in? %>
-  <div class="search_form">
-    <%= form_with url: searches_path, local: true, method: :get do |f| %>
-      <%= f.text_field :word %>
-      <%= f.select :range, options_for_select([["タイトル","title"],["内容","post"]]) %>
-      <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"], ["","test"]]) %>
-      <%= f.submit "検索", class: "btn btn-light rounded-pill" %>
-    <% end %>
-  </div>
-<% end %>
+<div class="search_form">
+  <%= form_with url: searches_path, local: true, method: :get do |f| %>
+    <%= f.text_field :word %>
+    <%= f.select :range, options_for_select([["タイトル","title"],["内容","post"]]) %>
+    <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"], ["","test"]]) %>
+    <%= f.submit "検索", class: "btn btn-light rounded-pill" %>
+  <% end %>
+</div>

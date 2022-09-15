@@ -4,7 +4,7 @@ class Customer::PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_customer.posts.new(post_params)
     @post.save
     redirect_to root_path
   end
@@ -22,8 +22,8 @@ class Customer::PostsController < ApplicationController
   end
 
   def search_post
-     @post=Pook.new
-     @posts = Pook.search(params[:keyword])
+     @post=Post.new
+     @posts = Post.search(params[:search_word])
   end
 
   def update
