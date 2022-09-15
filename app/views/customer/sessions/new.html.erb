@@ -44,7 +44,9 @@
         </div>
         <div>
           ゲストとしてログインする場合は
-          <%#= link_to 'コチラ', customer_guest_sign_in_path, method: :post %>
+          <li>
+            <%= link_to 'ゲストログイン', customer_guest_sign_in_path, method: :post, class: "login" %>
+          </li>
         </div>
       </div>
     </div>

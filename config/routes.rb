@@ -26,6 +26,10 @@ Rails.application.routes.draw do
     registrations: 'customer/registrations'
   }
 
+  devise_scope :customer do
+    post 'customer/guest_sign_in', to: 'customer/sessions#new_guest'
+  end
+
   root to: 'customer/homes#top'
   get "customer/homes/about" => "customer/homes#about"
   get "searches" => "customer/searches#search"
