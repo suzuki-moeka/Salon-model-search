@@ -10,7 +10,7 @@ class Customer::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page])
   end
 
   def show
