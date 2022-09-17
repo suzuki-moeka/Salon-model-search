@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'customer/homes#top'
 
   namespace :customer do
+    resources :reserves, only: [:index, :new, :show, :create]
     resources :posts do
       resources :post_comments, only: [:create, :destroy]
       resource :likes, only: [:create, :destroy]
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
 
   get "customer/homes/about" => "customer/homes#about"
   get "searches" => "customer/searches#search"
-  get "customer/reserve/index" => "customer/reserve#index"
+  #get "customer/reserve/index" => "customer/reserve#index"
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

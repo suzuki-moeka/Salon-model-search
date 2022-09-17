@@ -1,5 +1,5 @@
 module Customer::ReserveHelper
-  
+
   def times
      times = ["9:00",
               "9:30",
@@ -13,13 +13,17 @@ module Customer::ReserveHelper
               "15:00",
               "15:30",
               "16:00",
-              "16:30"]
+              "16:30",
+              "17:00",
+              "17:30",
+              "18:00",
+              "18:30",
+              "19:00"]
   end
-  
-  def check_reserve(reserve, day, time)
+
+  def check_reserve(reserves, day, time)
     result = false
     reserves_count = reserves.count
-    # 取得した予約データにdayとtimeが一致する場合はtrue,一致しない場合はfalseを返します
     if reserves_count > 1
       reserves.each do |reserve|
         result = reserve[:day].eql?(day.strftime("%Y-%m-%d")) && reserve[:time].eql?(time)

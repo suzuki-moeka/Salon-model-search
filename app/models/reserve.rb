@@ -1,5 +1,5 @@
 class Reserve < ApplicationRecord
-  def self.reservations_after_three_month
+  def self.reserves_after_three_month
       reserves = Reserve.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
       reserves_data = []
       reserves.each do |reserve|
@@ -7,6 +7,16 @@ class Reserve < ApplicationRecord
       reserves_hash.merge!(day: reserve.day.strftime("%Y-%m-%d"), time: reserve.time)
       reserves_data.push(reserves_hash)
     end
-    reserve_data
+    reserves_data
+  end
+
+  def self.check_reserve_day(day)
+    if day < Date.current
+      return "※過去の日付は選択できません。正しい日付を選択してください。"
+    elsif day < (Date.current + 1)
+      return "※当日は選択できません。正しい日付を選択してください。"
+    elsif (Date.current >> 3) < day
+      return "※3ヶ月以降の日付は選択できません。正しい日付を選択してください。"
+    end
   end
 end

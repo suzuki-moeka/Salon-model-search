@@ -1,6 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
-*= require simple_calendar
 
 body {
   line-height: 2;
@@ -10,6 +9,7 @@ body {
   background-image: url("../images/about.png");
   background-size: cover;
   background-position: center 60%;
+  height: 400px;
 }
 
 header {
@@ -67,12 +67,17 @@ header a:hover,
 }
 
 .bottom {
-    box-shadow: 2px 2px 2px 2px #d6c2bb;
+  box-shadow: 2px 2px 2px 2px #d6c2bb;
 }
 
 .btn {
-    background: #94D6DA;
-    color: #fff;
+  background: #94D6DA;
+  color: #fff;
+}
+
+.alert{
+  text-align: center;
+  font-weight: bold;
 }
 
 footer {
