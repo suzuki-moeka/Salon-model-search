@@ -7,9 +7,24 @@ body {
 
 .bg-img {
   background-image: url("../images/about.png");
+  background-color: rgba(255,255,255,0.5);
+  background-blend-mode: lighten;
   background-size: cover;
   background-position: center 60%;
   height: 400px;
+}
+
+.display-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 header {
