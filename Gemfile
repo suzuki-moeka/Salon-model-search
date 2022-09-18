@@ -67,3 +67,4 @@ gem 'devise'
 gem 'jquery-rails'
 gem "simple_calendar", "~> 2.0"
 gem 'kaminari','~> 1.2.1'
+gem 'bootstrap5-kaminari-views', '~> 0.0.1'
