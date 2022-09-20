@@ -28,7 +28,7 @@ class Customer::ReservesController < ApplicationController
       render :new
     end
   end
-  
+
   def destroy
     @reserve = Reserve.find(params[:id])
     if @reserve.destroy

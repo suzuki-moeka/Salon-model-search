@@ -28,7 +28,7 @@
           <!--希望日時-->
           日時：<%= post.timedate %><br>
           <!--タグ-->
-          タグ：<%= post.category %>
+          タグ：<%= post.category %><br>
           <!--コメント件数-->
           <%= link_to "#{post.post_comments.count} コメント", customer_post_path(post) %>
         </div>
