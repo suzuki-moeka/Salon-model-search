@@ -28,6 +28,16 @@ class Customer::ReservesController < ApplicationController
       render :new
     end
   end
+  
+  def destroy
+    @reserve = Reserve.find(params[:id])
+    if @reserve.destroy
+      flash[:success] = "予約を削除しました。"
+      redirect_to customer_customer_path(current_customer.id)
+    else
+      render :show
+    end
+  end
 
   private
 

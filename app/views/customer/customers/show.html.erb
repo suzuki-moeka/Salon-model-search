@@ -30,3 +30,38 @@
     </div>
   </div>
 </div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <h4>予約一覧</h3>
+        <div class="jumbotron bottom">
+          <% @customer_reserves.each do |customer_reserve| %>
+            <%= customer_reserve.day %>
+            <%= customer_reserve.time %>
+            　　　　<%= link_to '予約キャンセル', customer_reserve_path(customer_reserve.id), method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %>
+          <% end %>
+          <% if @customer_reserves.blank? %>
+            予約はありません。
+          <% end %>
+        </div>
+      </div>
+    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <h4>来院履歴</h4>
+            <div class="jumbotron bottom">
+              <% @visit_historys.each do |visit_history| %>
+                <%= visit_history.day %>
+                <%= visit_history.time %>
+              <% end %>
+              <% if @visit_historys.blank? %>
+                来院履歴はありません
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>

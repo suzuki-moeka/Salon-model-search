@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
   has_many :post_comments, dependent: :destroy
+  has_many :reserves
 
   def self.guest
     find_or_create_by!(email: 'aaa@aaa.com') do |customer|
