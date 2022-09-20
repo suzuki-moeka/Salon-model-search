@@ -3,6 +3,8 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :reserves
+  has_many :customers
 
   def full_name
     self.first_name + " " + self.last_name

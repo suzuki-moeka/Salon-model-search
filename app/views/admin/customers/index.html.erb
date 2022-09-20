@@ -41,3 +41,46 @@
     </div>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <h4>
+        予約　一覧
+      </h4>
+    </div>
+  </div>
+</div>
+ <div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+     <div class="d-flex align-items-center">
+       <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">名前</th>
+            <th scope="col">予約日時</th>
+        </thead>
+        <tbody>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td>
+                <%= customer.full_name %>
+              </td>
+            </tr>
+          <% end %>
+            <td>
+             <% @reserves.each do |reserve| %>
+              <%= reserve.day %>
+              <%= reserve.time %>
+             <% end %>
+              <% if @reserves.blank? %>
+                予約はありません。
+              <% end %>
+            </td>
+          </tr>
+      　 <tbody>
+    　  </table>
+     </div>
+    </div>
+  </div>
+</div>

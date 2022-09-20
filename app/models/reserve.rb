@@ -1,5 +1,6 @@
 class Reserve < ApplicationRecord
   belongs_to :customer
+  belongs_to :admin
 
   def self.reserves_after_three_month
       reserves = Reserve.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
