@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+     <div class="d-flex align-items-center">
+       <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">名前</th>
+            <th scope="col">予約日</th>
+            <th scope="col">予約時間</th>
+        </thead>
+        <tbody>
+          <% @reserves.each do |reserve| %>
+            <tr>
+              <td>
+                <%= reserve.customer.full_name %>
+              </td>
+              <td>
+                <%= reserve.day %>
+              </td>
+              <td>
+                <%= reserve.time %>
+              </td>
+          <% end %>
+              <% if @reserves.blank? %>
+              <td>
+                予約はありません。
+              </td>
+              <td></td>
+              <td></td>
+              <% end %>
+            </tr>
+      　 <tbody>
+    　  </table>
+     </div>
+    </div>
+  </div>
+</div>

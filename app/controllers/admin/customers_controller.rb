@@ -11,7 +11,6 @@ class Admin::CustomersController < ApplicationController
 
   def index
     @customers = Customer.all
-    @reserves = Reserve.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
   end
 
    private

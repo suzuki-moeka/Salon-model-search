@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get "homes/top" => "homes#top"
     resources :customers, only: [:index, :show, :edit, :update]
+    resources :reserves, only: [:index]
   end
 
   devise_for :admin, skip: [:registrations, :passwords] , controllers: {
