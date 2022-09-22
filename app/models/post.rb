@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   has_many :post_comments, dependent: :destroy
 
   def full_name
-    self.last_name + " " + self.first_name
+    "#{last_name} #{first_name}"
   end
 
   def liked_by?(customer)
@@ -14,22 +14,24 @@ class Post < ApplicationRecord
   end
 
   def self.titlelooks(search, word)
-    if search == "perfect_match"
-      @posts = Post.where("title LIKE ?", "#{word}")
-    elsif search == "partial_match"
-      @posts = Post.where("title LIKE ?","%#{word}%")
+    case search
+    when "perfect_match"
+      where("title LIKE ?", "#{word}")
+    when "partial_match"
+      where("title LIKE ?","%#{word}%")
     else
-      @posts = Post.all
+      all
     end
   end
 
   def self.postlooks(search, word)
-    if search == "perfect_match"
-      @posts = Post.where("post LIKE ?", "#{word}")
-    elsif search == "partial_match"
-      @posts = Post.where("post LIKE ?","%#{word}%")
+    case search
+    when "perfect_match"
+      where("post LIKE ?", "#{word}")
+    when "partial_match"
+      where("post LIKE ?","%#{word}%")
     else
-      @posts = Post.all
+      all
     end
   end
 
