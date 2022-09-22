@@ -1,6 +1,9 @@
-# Salon model search
 <img width="250" alt="logo2" src="https://user-images.githubusercontent.com/108617998/191665741-d3a5688f-b023-4dc2-9120-e6fc9ce9d331.png">
-<img width="864" alt="About" src="https://user-images.githubusercontent.com/108617998/191735080-3365343c-b802-4144-904b-a4b5feb7ccf0.png">
+
+# Salon model search
+
+<img width="864" alt="About" src="https://user-images.githubusercontent.com/108617998/191735876-f94039f6-df2a-4649-b2fa-731bd2fe50b9.png">
+
 ## サイト概要
 ### サイトテーマ
 - 美容院に行きたいユーザーと、カットモデルを探している美容院のマッチングサイトです。
@@ -32,3 +35,5 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
+## 使用素材
+- 画像は全て許可を得て使用しています。
