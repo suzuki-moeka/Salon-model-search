@@ -106,3 +106,45 @@ footer {
   background-color: #EBF6F7;
   color: #805140;
 }
+
+.link {
+    text-decoration: none;
+    color: white;
+}
+
+.link2 {
+    text-decoration: none;
+    color: black;
+}
+
+.like {
+    text-decoration: none;
+    color: red;
+}
+
+.notlike {
+    text-decoration: none;
+    color: black;
+}
+
+.heart {
+  color: red;
+}
+
+.title-border {
+  display: flex;
+  align-items: center;
+  color: #805140;
+}
+.title-border:before,
+.title-border:after {
+  border-top: 1px solid;
+  content: "";
+  flex-grow: 1;
+}
+.title-border:before {
+  margin-right: 1rem;
+}
+.title-border:after {
+  margin-left: 1rem;
+}

@@ -18,9 +18,7 @@
             </div>
           </div>
           <!--title-->
-          <%= link_to customer_post_path(post.id) do %>
-            <h5><%= post.title %></h5><br>
-          <% end %>
+          <h5><%= post.title %></h5><br>
           <!--内容-->
           <%= truncate(post.post, omission: "...") %><br>
           <!--金額-->
@@ -28,9 +26,17 @@
           <!--希望日時-->
           日時：<%= post.timedate %><br>
           <!--タグ-->
-          タグ：<%= post.category %><br>
+          {<%= post.category %>}<br>
+          <!--いいね数-->
+          <i class="fas fa-heart heart"></i>
+          <%= post.likes.count %><br>
           <!--コメント件数-->
-          <%= link_to "#{post.post_comments.count} コメント", customer_post_path(post) %>
+          <i class="fas fa-comment-alt"></i>
+          <%= post.post_comments.count %><br>
+          <!--詳細へ-->
+          <div class="btn float-right">
+            <%= link_to"詳細を見る", customer_post_path(post.id), class: "link" %>
+          </div>
         </div>
       </div>
     </div>
