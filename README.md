@@ -1,7 +1,6 @@
-<img width="250" alt="logo2" src="https://user-images.githubusercontent.com/108617998/191665741-d3a5688f-b023-4dc2-9120-e6fc9ce9d331.png">
-
 # Salon model search
-
+<img width="250" alt="logo2" src="https://user-images.githubusercontent.com/108617998/191665741-d3a5688f-b023-4dc2-9120-e6fc9ce9d331.png">
+<img width="864" alt="About" src="https://user-images.githubusercontent.com/108617998/191735080-3365343c-b802-4144-904b-a4b5feb7ccf0.png">
 ## サイト概要
 ### サイトテーマ
 - 美容院に行きたいユーザーと、カットモデルを探している美容院のマッチングサイトです。
