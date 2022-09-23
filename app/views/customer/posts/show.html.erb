@@ -4,26 +4,38 @@
       <div class="jumbotron bottom">
         <div class="text-center">
           <!--画像-->
-          <% if @post.image.attached? %>
-            <%= image_tag @post.image, size:'350x350' %><br>
-          <% else %>
-            <%= image_tag 'no_image.jpg', size:'300x300' %><br>
-          <% end %>
+          <strong>
+            <% if @post.images.attached? %>
+              <% @post.images.each do |image| %>
+                <%= image_tag image.variant(resize: '150x150') %><br>
+              <% end %>
+            <% else %>
+              <%= image_tag 'no_image.jpg', size:'300x300' %><br>
+            <% end %>
+          </strong>
         </div>
         <div class="jumbotron-body">
           <!--title-->
-          <%= @post.title %><br>
+          <p class="font-weight-bold">
+            <%= @post.title %><br>
+          </p>
           <!--名前-->
           <%= @post.customer.last_name + @post.customer.first_name %><br>
           <!--内容-->
           <%= @post.post %><br>
           <!--金額-->
-          金額：<%= @post.price %>円<br>
+          金額 <font color="red">￥<%= @post.price %></font><br>
           <!--希望日時-->
           希望日時：<%= @post.timedate %><br>
           <!--タグ-->
-          タグ：<%= @post.category%><br>
-          コメント件数：<%= @post.post_comments.count %>
+          <i class="fas fa-hashtag"></i>
+          <%= @post.category%>
+          <!--いいね数-->
+          &emsp;<i class="fas fa-heart heart"></i>
+          <%= @post.likes.count %>
+          <!--コメント件数-->
+          &emsp;<i class="fas fa-comment-alt comment"></i>
+          <%= @post.post_comments.count %>
             <% @post.post_comments.each do |post_comment| %>
               <div class="pt-4">
                 <!--コメント-->
@@ -38,19 +50,21 @@
                   <div align="right">
                     <!--カスタマーコメント削除-->
                     <% if post_comment.customer == current_customer %>
-                      <%= link_to "コメント削除", customer_post_post_comment_path(post_comment.post, post_comment), method: :delete %><br>
+                      <%= link_to "口コミ削除", customer_post_post_comment_path(post_comment.post, post_comment), method: :delete %><br>
                     <% end %>
                     <!--管理者コメント削除-->
                     <% if admin_signed_in? %>
-                      <%= link_to "コメント削除", customer_post_post_comment_path(post_comment.post, post_comment), method: :delete %><br>
+                      <%= link_to "口コミ削除", customer_post_post_comment_path(post_comment.post, post_comment), method: :delete %><br>
                     <% end %>
                   </div>
               </div>
             <% end %>
         </div>
+            <!--予約-->
             <div class="pt-3">
-              <!--予約-->
-              <%= link_to"予約する (予約するには新規メンバー登録が必要です)", customer_reserves_path %>
+              <div class="btn float-right">
+                <%= link_to"予約する", customer_reserves_path, class: "link" %>
+              </div>
             </div>
         </div>
       </div>
@@ -60,9 +74,9 @@
   <div class="row">
     <div class="col-md-6 mx-auto">
         <%= form_with model: [@post, @post_comment], url: customer_post_post_comments_path(@post) do |f| %>
-          <%= f.text_area :comment, :size=>"58x3", placeholder: "コメントをここに" %>
+          <%= f.text_area :comment, :size=>"58x3", placeholder: "口コミをここに入力" %>
           <div>
-            <%= f.submit "コメントする" %>
+            <%= f.submit "口コミを投稿する", class: "submit-btn" %>
           </div>
         <% end %>
       </div>

@@ -11,14 +11,14 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body background="bg-img-3.jpg">
     <%= render "layouts/header" %>
     <div class="alert">
       <% if flash[:alert].present? %>
         <p><%= flash[:alert] %></p>
       <% end %>
     </div>
-    <div class="my-5">
+    <div class="pt-5 my-5">
       <%= yield %>
     </div>
     <%= render "layouts/footer" %>

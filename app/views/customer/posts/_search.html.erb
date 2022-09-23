@@ -1,6 +1,7 @@
 <div class="search_form">
   <%= form_with url:  search_post_customer_posts_path, local: true, method: :get do |f| %>
-    <%= f.select :search_word, [["サロンモデル希望", "サロンモデル希望"],["NEW OPEN", "NEW OPEN"], ["受賞歴あり", "受賞歴あり"], ["21時以降OK", "21時以降OK"], ["早朝対応可", "早朝対応可"], ["お子様同伴OK", "お子様同伴OK"], ["学生に人気", "学生に人気"], ["お手頃プライス", "お手頃プライス"]], include_blank: "選択して下さい" %>
-    <%= f.submit "検索", class: "btn btn-light rounded-pill" %>
+    <i class="fas fa-hashtag fa-lg" style="color:#805140;"></i>&emsp;
+    <%= f.select :search_word, [["サロンモデル希望", "サロンモデル希望"],["NEW OPEN", "NEW OPEN"], ["受賞歴あり", "受賞歴あり"], ["21時以降OK", "21時以降OK"], ["早朝対応可", "早朝対応可"], ["お子様同伴OK", "お子様同伴OK"], ["学生に人気", "学生に人気"], ["お手頃プライス", "お手頃プライス"]], include_blank: "選択して下さい" %>&emsp;
+    <%= f.submit "検索", class: "btn btn-light rounded-pill" %>&emsp;
   <% end %>
 </div>

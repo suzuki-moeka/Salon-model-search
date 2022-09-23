@@ -1,22 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10 mx-auto">
-      <div class="jumbotron">
-        <h5 class="title-border">新着サロン一覧</h5>
-        　<%= render "customer/posts/index", posts: @posts %>
+    <div class="col-md-5 mx-auto">
+      <div class="sidebar">
+        <div class="jumbotron">
+            <h5 class="title-border pb-4">キーワード検索</h5>
+              <%= render "customer/searches/index" %>
+          </div>
+          <div class="jumbotron">
+            <h5 class="title-border pb-4">タグ検索</h5>
+            <%= render "customer/posts/search" %>
+          </div>
+        </div>
       </div>
-      <div class="jumbotron">
-        <h5 class="title-border pb-4">キーワード検索</h5>
-          <%= render "customer/searches/index" %>
-      </div>
-      <div class="jumbotron">
-        <h5 class="title-border pb-4">タグ検索</h5>
-        <%= render "customer/posts/search" %>
-      </div>
-      <div class="jumbotron">
-        <h5 class="title-border pb-4">お気に入り数ランキング</h5>
-          <%= render "customer/ranks/rank", post_ranks: @post_ranks %>
+      <div class="col-md-7 mx-auto">
+        <div class="jumbotron">
+          <h5 class="title-border">新着サロン一覧</h5>
+          　<%= render "customer/posts/index", posts: @posts %>
+        </div>
+        <div class="jumbotron">
+          <h5 class="title-border pb-4">お気に入り数ランキング</h5>
+            <%= render "customer/ranks/rank", post_ranks: @post_ranks %>
+        </div>
       </div>
     </div>
   </div>
-</div>

@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  has_one_attached :image
+  has_many_attached :images
   belongs_to :customer
   has_many :likes, dependent: :destroy
   has_many :liked_customers, through: :likes, source: :customer

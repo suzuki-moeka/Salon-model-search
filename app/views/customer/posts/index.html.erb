@@ -5,27 +5,35 @@
           <div class="jumbotron bottom">
             <div>
               <!--title-->
-              <%= link_to customer_post_path(post.id) do %>
-                <%= post.title %><br>
-              <% end %>
+              <h6 class="font-weight-bold"><%= post.title %></h6><br>
               <!--画像-->
-              <% if post.image.attached? %>
-                <%= image_tag post.image, size:'100x100' %><br>
-              <% else %>
-                <%= image_tag 'no_image.jpg', size:'100x100' %><br>
-              <% end %>
+              <strong>
+                <% if post.images.attached? %>
+                  <% post.images.each do |image| %>
+                    <%= image_tag image.variant(resize: '150x150') %><br>
+                  <% end %>
+                <% else %>
+                  <%= image_tag 'no_image.jpg', class: 'img-fluid' %><br>
+                <% end %>
+              </strong>
               <!--内容-->
               <%= truncate(post.post, omission: "...") %><br>
               <!--金額-->
-              金額：<%= post.price %>円<br>
+              金額 <font color="red">￥<%= post.price %></font><br>
               <!--希望日時-->
               日時：<%= post.timedate %><br>
               <!--タグ-->
-              タグ：<%= post.category%><br>
+              <i class="fas fa-hashtag"></i><%= post.category %>
               <!--いいね数-->
-              いいね：<%= post.likes.count %><br>
+              &emsp;<i class="fas fa-heart heart"></i>
+              <%= post.likes.count %>
               <!--コメント件数-->
-              コメント件数：<%= post.post_comments.count %><br>
+              &emsp;<i class="fas fa-comment-alt comment"></i>
+              <%= post.post_comments.count %>
+              <!--詳細へ-->
+              <div class="btn float-right">
+                <%= link_to"詳細を見る", customer_post_path(post.id), class: "link" %>
+              </div>
             </div>
           </div>
         <% end %>

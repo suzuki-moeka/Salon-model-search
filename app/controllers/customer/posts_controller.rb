@@ -33,6 +33,6 @@ class Customer::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :price, :image, :post, :timedate, :category)
+    params.require(:post).permit(:title, :price, :post, :timedate, :category, images: [])
   end
 end

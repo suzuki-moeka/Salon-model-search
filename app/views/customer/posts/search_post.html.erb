@@ -5,11 +5,15 @@
         <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3 mb-sm-0">
           <div class="card shadow">
             <!--画像-->
-            <% if post.image.attached? %>
-              <%= image_tag post.image, class: 'card-img-top img-fluid search-card-img' %>
-            <% else %>
-              <%= image_tag 'no_image.jpg', class: 'card-img-top img-fluid search-card-img' %>
-            <% end %>
+            <strong>
+              <% if post.images.attached? %>
+              <% post.images.each do |image| %>
+                <%= image_tag image.variant(resize: '150x150') %>
+              <% end %>
+              <% else %>
+                <%= image_tag 'no_image.jpg', class: 'card-img-top img-fluid search-card-img' %>
+              <% end %>
+            </strong>
             <div class="card-body">
               <!--title-->
               <%= link_to customer_post_path(post.id) do %>

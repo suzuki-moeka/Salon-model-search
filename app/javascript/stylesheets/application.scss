@@ -3,11 +3,11 @@
 
 body {
   line-height: 2;
+  background-image: url("../images/bg-img-2.jpg");
 }
 
 .bg-img {
   background-image: url("../images/about.png");
-
   background-blend-mode: lighten;
   background-size: cover;
   background-position: center 60%;
@@ -34,6 +34,7 @@ body {
 }
 
 header {
+  position: fixed; top: 0; left: 0;
   background-color: #EBF6F7;
   color: #805140;
 }
@@ -131,6 +132,10 @@ footer {
   color: red;
 }
 
+.comment {
+  color: #659AD2;
+}
+
 .title-border {
   display: flex;
   align-items: center;
@@ -138,13 +143,60 @@ footer {
 }
 .title-border:before,
 .title-border:after {
-  border-top: 1px solid;
+  border-top: 2px solid;
   content: "";
-  flex-grow: 1;
+  flex-grow: 2;
 }
 .title-border:before {
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
 .title-border:after {
-  margin-left: 1rem;
+  margin-left: 2rem;
+}
+
+.pagination > li > a
+{
+    background-color: white;
+    color: #805140;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #805140;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #805140;
+    border: solid 2px #805140;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: #805140;
+    border: solid 2px #805140;
+}
+
+.title {
+  border-bottom: 1px solid #805140;
+}
+
+.submit-btn{
+  border: none;
+  border-radius: 0.5rem;
+  background: #94D6DA;
+  color: #fff;
+}
+
+.sidebar{
+    position: sticky;
+    top: 0px;
+    padding: 40px;
+    width: 100%;
 }

@@ -1,8 +1,13 @@
 <div class="search_form">
   <%= form_with url: searches_path, local: true, method: :get do |f| %>
-    <%= f.text_field :word %>
-    <%= f.select :range, options_for_select([["タイトル","title"],["内容","post"]]) %>
-    <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"], ["","test"]]) %>
-    <%= f.submit "検索", class: "btn btn-light rounded-pill" %>
+    <i class="fas fa-search fa-lg" style="color:#805140;"></i>&emsp;
+    <%= f.text_field :word%><br>
+    <div class="mt-3">
+      <div style="text-align:center;">
+        <%= f.select :range, options_for_select([["タイトル","title"],["内容","post"]]) %>
+        <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"], ["","test"]]) %>
+        <%= f.submit "検索", class: "btn btn-light rounded-pill" %>
+      </div>
+    </div>
   <% end %>
 </div>
