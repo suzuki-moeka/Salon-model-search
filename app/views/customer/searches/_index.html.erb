@@ -6,7 +6,7 @@
       <div style="text-align:center;">
         <%= f.select :range, options_for_select([["タイトル","title"],["内容","post"]]) %>
         <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"], ["","test"]]) %>
-        <%= f.submit "検索", class: "btn btn-light rounded-pill" %>
+        <%= f.submit "検索", class: "btn rounded-pill" %>
       </div>
     </div>
   <% end %>

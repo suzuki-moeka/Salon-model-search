@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 mx-auto">
+    <div class="col-md-11 mx-auto">
         <% @posts.each do |post| %>
           <div class="jumbotron bottom">
             <div>
@@ -8,13 +8,19 @@
               <h6 class="font-weight-bold"><%= post.title %></h6><br>
               <!--画像-->
               <strong>
-                <% if post.images.attached? %>
-                  <% post.images.each do |image| %>
-                    <%= image_tag image.variant(resize: '150x150') %><br>
+                <div class="d-flex flex-column align-items-center jutify-content-around flex-sm-row justify-content-around flex-wrap">
+                  <% if post.images.attached? %>
+                    <% post.images.each do |image| %>
+                    <div class="mb-5">
+                      <%= image_tag image.variant(resize: '300x300') %>
+                    </div>
+                    <% end %>
+                  <% else %>
+                    <div>
+                      <%= image_tag 'no_image.jpg', class: 'img-fluid' %>
+                    </div>
                   <% end %>
-                <% else %>
-                  <%= image_tag 'no_image.jpg', class: 'img-fluid' %><br>
-                <% end %>
+                </div>
               </strong>
               <!--内容-->
               <%= truncate(post.post, omission: "...") %><br>
@@ -23,7 +29,7 @@
               <!--希望日時-->
               日時：<%= post.timedate %><br>
               <!--タグ-->
-              <i class="fas fa-hashtag"></i><%= post.category %>
+              <i class="fas fa-hashtag"></i>&nbsp;<%= post.category %>
               <!--いいね数-->
               &emsp;<i class="fas fa-heart heart"></i>
               <%= post.likes.count %>
@@ -42,7 +48,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-6 mx-auto">
+    <div class="col-md-8 mx-auto">
       <%= paginate @posts, theme: 'bootstrap-5' %>
     </div>
   </div>

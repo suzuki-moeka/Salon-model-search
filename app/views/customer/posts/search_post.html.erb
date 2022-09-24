@@ -1,15 +1,13 @@
 <div class="container">
-  <h4>検索結果</h4>
+  <h4 class="title-border pb-4">検索結果</h4>
     <div class="row">
       <% @posts.each do |post| %>
         <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3 mb-sm-0">
           <div class="card shadow">
             <!--画像-->
-            <strong>
+            <strong style="text-align: center;">
               <% if post.images.attached? %>
-              <% post.images.each do |image| %>
-                <%= image_tag image.variant(resize: '150x150') %>
-              <% end %>
+                <%= image_tag post.images[0], class: 'card-img-top img-fluid search-card-img' %>
               <% else %>
                 <%= image_tag 'no_image.jpg', class: 'card-img-top img-fluid search-card-img' %>
               <% end %>
@@ -17,21 +15,19 @@
             <div class="card-body">
               <!--title-->
               <%= link_to customer_post_path(post.id) do %>
-                <h3><%= post.title %></h3>
+                <h3 class="link2"><%= post.title %></h3>
               <% end %>
-
               <div>
                 <!--内容-->
                 <%= truncate(post.post, omission: "...") %>
               </div>
-
               <div class="row">
                 <div class="col-md-4">
                   金額
                 </div>
                 <div class="col-md-8">
                   <!--金額-->
-                  <%= post.price %>円
+                  <font color="red">￥<%= post.price %></font><br>
                 </div>
               </div>
               <div class="row">
@@ -41,6 +37,18 @@
                 <div class="col-md-8">
                   <!--希望日時-->
                   <%= post.timedate %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <!--タグ-->
+                  <i class="fas fa-hashtag"></i>&nbsp;<%= post.category %>
+                  <!--いいね数-->
+                  &emsp;<i class="fas fa-heart heart"></i>
+                  <%= post.likes.count %>
+                  <!--コメント件数-->
+                  &emsp;<i class="fas fa-comment-alt comment"></i>
+                  <%= post.post_comments.count %>
                 </div>
               </div>
             </div>

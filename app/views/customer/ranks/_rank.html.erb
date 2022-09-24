@@ -16,17 +16,23 @@
           <div class="col-12">
             <!--画像-->
             <strong>
-              <% if post.images.attached? %>
-                <% post.images.each do |image| %>
-                  <%= image_tag image.variant(resize: '150x150') %><br>
+              <div class="d-flex flex-column align-items-center jutify-content-around flex-sm-row justify-content-around flex-wrap">
+                <% if post.images.attached? %>
+                  <% post.images.each do |image| %>
+                  <div>
+                    <%= image_tag image.variant(resize: '150x150') %>
+                  </div>
+                  <% end %>
+                <% else %>
+                <div>
+                  <%= image_tag 'no_image.jpg', class: 'img-fluid' %>
+                </div>
                 <% end %>
-              <% else %>
-                <%= image_tag 'no_image.jpg', class: 'img-fluid' %><br>
-              <% end %>
+              </div>
             </strong>
             <!--title-->
             <div class="title">
-              <p class="font-weight-bold"><%= post.title %></p><br>
+              <p class="font-weight-bold"><%= post.title %></p>
             </div>
             <!--内容-->
             <%= truncate(post.post, omission: "...") %><br>

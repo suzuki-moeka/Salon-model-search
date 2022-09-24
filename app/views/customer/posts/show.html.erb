@@ -1,26 +1,33 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 mx-auto">
+    <div class="col-md-12 mx-auto">
       <div class="jumbotron bottom">
         <div class="text-center">
           <!--画像-->
           <strong>
-            <% if @post.images.attached? %>
-              <% @post.images.each do |image| %>
-                <%= image_tag image.variant(resize: '150x150') %><br>
-              <% end %>
-            <% else %>
-              <%= image_tag 'no_image.jpg', size:'300x300' %><br>
+            <div class="d-flex flex-column align-items-center jutify-content-around flex-sm-row justify-content-around flex-wrap">
+              <% if @post.images.attached? %>
+                <% @post.images.each do |image| %>
+                <div>
+                  <%= image_tag image.variant(resize: '300x300') %>
+                </div>
+                <% end %>
+              <% else %>
+              <div>
+                <%= image_tag 'no_image.jpg', class: 'img-fluid' %>
+              </div>
             <% end %>
+            </div>
           </strong>
         </div>
         <div class="jumbotron-body">
           <!--title-->
           <p class="font-weight-bold">
             <%= @post.title %><br>
+            <hr>
           </p>
           <!--名前-->
-          <%= @post.customer.last_name + @post.customer.first_name %><br>
+          投稿者：<%= @post.customer.last_name + @post.customer.first_name %><br>
           <!--内容-->
           <%= @post.post %><br>
           <!--金額-->
@@ -36,13 +43,14 @@
           <!--コメント件数-->
           &emsp;<i class="fas fa-comment-alt comment"></i>
           <%= @post.post_comments.count %>
+          <hr>
             <% @post.post_comments.each do |post_comment| %>
               <div class="pt-4">
                 <!--コメント-->
                 <%= post_comment.comment %>
               </div>
               <div>
-            　　  <!--名前-->
+                <!--名前-->
                 <%= post_comment.customer.full_name %>
                  |
                 <!--時間-->
@@ -51,10 +59,12 @@
                     <!--カスタマーコメント削除-->
                     <% if post_comment.customer == current_customer %>
                       <%= link_to "口コミ削除", customer_post_post_comment_path(post_comment.post, post_comment), method: :delete %><br>
+                      <hr>
                     <% end %>
                     <!--管理者コメント削除-->
                     <% if admin_signed_in? %>
                       <%= link_to "口コミ削除", customer_post_post_comment_path(post_comment.post, post_comment), method: :delete %><br>
+                      <hr>
                     <% end %>
                   </div>
               </div>
@@ -76,7 +86,7 @@
         <%= form_with model: [@post, @post_comment], url: customer_post_post_comments_path(@post) do |f| %>
           <%= f.text_area :comment, :size=>"58x3", placeholder: "口コミをここに入力" %>
           <div>
-            <%= f.submit "口コミを投稿する", class: "submit-btn" %>
+            <%= f.submit "口コミを投稿する", class: "btn submit-btn" %>
           </div>
         <% end %>
       </div>

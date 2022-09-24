@@ -2,13 +2,19 @@
   <div class="jumbotron bottom">
     <!--画像-->
     <strong>
-      <% if post.images.attached? %>
-        <% post.images.each do |image| %>
-          <%= image_tag image.variant(resize: '150x150') %><br>
+      <div class="d-flex flex-column align-items-center jutify-content-around flex-sm-row justify-content-around flex-wrap">
+        <% if post.images.attached? %>
+          <% post.images.each do |image| %>
+          <div>
+            <%= image_tag image.variant(resize: '160x160') %>
+          </div>
+          <% end %>
+        <% else %>
+          <div>
+            <%= image_tag 'no_image.jpg', class: 'img-fluid' %>
+          </div>
         <% end %>
-      <% else %>
-        <%= image_tag 'no_image.jpg', class: 'img-fluid' %>
-      <% end %>
+      </div>
     </strong>
     <!--いいね-->
     <div class="text-right">
@@ -18,7 +24,7 @@
     </div>
     <!--title-->
     <div class="title">
-      <p class="font-weight-bold"><%= post.title %></p><br>
+      <p class="font-weight-bold"><%= post.title %></p>
     </div>
     <!--内容-->
     <%= truncate(post.post, omission: "...") %><br>
@@ -27,7 +33,7 @@
     <!--希望日時-->
     日時：<%= post.timedate %><br>
     <!--タグ-->
-    <i class="fas fa-hashtag"></i><%= post.category %>
+    <i class="fas fa-hashtag"></i>&nbsp;<%= post.category %>
     <!--いいね数-->
     &emsp;<i class="fas fa-heart heart"></i>
     <%= post.likes.count %>

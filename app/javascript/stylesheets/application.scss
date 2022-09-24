@@ -4,6 +4,7 @@
 body {
   line-height: 2;
   background-image: url("../images/bg-img-2.jpg");
+  height: 100vh;
 }
 
 .bg-img {
@@ -17,7 +18,7 @@ body {
 .box {
   background-color: rgba(255,255,255,0.5);
   width: 800px;
-　height: 600px;
+  height: 600px;
 }
 
 .display-4 {
@@ -37,6 +38,7 @@ header {
   position: fixed; top: 0; left: 0;
   background-color: #EBF6F7;
   color: #805140;
+  z-index: 100;
 }
 
 header a,
@@ -56,6 +58,7 @@ header a:hover,
 
 .hum-menu {
   background-color: #EBF6F7;
+  background-color: #white;
   top: 10px;
   right: 10px;
   z-index: 9999;
@@ -64,6 +67,7 @@ header a:hover,
 
 .navbar-toggler {
   border-color: #805140;
+
 }
 
 .navbar-toggler-icon {
@@ -106,26 +110,27 @@ header a:hover,
 footer {
   background-color: #EBF6F7;
   color: #805140;
+  margin-bottom: 5px;
 }
 
 .link {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .link2 {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .like {
-    text-decoration: none;
-    color: red;
+  text-decoration: none;
+  color: red;
 }
 
 .notlike {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .heart {
@@ -156,8 +161,8 @@ footer {
 
 .pagination > li > a
 {
-    background-color: white;
-    color: #805140;
+  background-color: white;
+  color: #805140;
 }
 
 .pagination > li > a:focus,
@@ -165,25 +170,26 @@ footer {
 .pagination > li > span:focus,
 .pagination > li > span:hover
 {
-    color: #805140;
-    background-color: #eee;
-    border-color: #ddd;
+  color: #805140;
+  background-color: #eee;
+  border-color: #ddd;
 }
 
 .pagination > .active > a
 {
-    color: white;
-    background-color: #805140;
-    border: solid 2px #805140;
+  color: white;
+  background-color: #805140;
+  border: solid 2px #805140;
 }
 
 .pagination > .active > a:hover
 {
-    background-color: #805140;
-    border: solid 2px #805140;
+  background-color: #805140;
+  border: solid 2px #805140;
 }
 
 .title {
+  border-top: 3px;
   border-bottom: 1px solid #805140;
 }
 
@@ -199,4 +205,31 @@ footer {
     top: 0px;
     padding: 40px;
     width: 100%;
+}
+
+p {
+  margin-bottom: 0px;
+}
+
+.page-item.active .page-link {
+  background-color: #805140;
+  border-color: #805140;
+}
+
+a:hover {
+  color: #805140;
+  text-decoration: none;
+}
+
+.btn:hover {
+  color: #805140;
+}
+
+.link3 {
+  text-decoration: none;
+  color: red;
+}
+
+.link3:hover {
+  color: red;
 }

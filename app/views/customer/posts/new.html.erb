@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 mx-auto">
-      <h4>投稿フォーム</h4>
+      <h4 class="title-border pb-4">投稿フォーム</h4>
       <% if customer_signed_in? %>
         <%= form_with model: @post, url: customer_posts_path, method: :post do |f| %>
           <div class="form-group">
@@ -33,7 +33,7 @@
             <%= f.label :category, "タグ" %>
             <%= f.select :category, [["サロンモデル希望", "サロンモデル希望"],["NEW OPEN", "NEW OPEN"], ["受賞歴あり", "受賞歴あり"], ["21時以降OK", "21時以降OK"], ["早朝対応可", "早朝対応可"], ["お子様同伴OK", "お子様同伴OK"], ["学生に人気", "学生に人気"], ["お手頃プライス", "お手頃プライス"]], include_blank: "選択して下さい" %>
           </div>
-          <%= f.submit '投稿する', class: "submit-btn" %>
+          <%= f.submit '投稿する', class: "btn submit-btn" %>
         <% end %>
       <% end %>
     </div>
