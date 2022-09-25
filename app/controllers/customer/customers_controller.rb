@@ -5,16 +5,14 @@ class Customer::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-
     @customer_reserves = current_customer.reserves.where("start_time >= ?", DateTime.current).order(day: :desc)
     @visit_historys = current_customer.reserves.where("start_time < ?", DateTime.current).where("start_time > ?", DateTime.current << 12).order(day: :desc)
-
   end
 
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
-      redirect_to customer_customer_path, notice: "You have updated user successfully."
+      redirect_to customer_customer_path(@customer.id), notice: "You have updated user successfully."
     else
       render 'edit'
     end
