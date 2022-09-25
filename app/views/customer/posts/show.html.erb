@@ -34,6 +34,8 @@
           金額 <font color="red">￥<%= @post.price %></font><br>
           <!--希望日時-->
           希望日時：<%= @post.timedate %><br>
+          <!--電話番号-->
+          お問合せ先電話番号：<%= @post.customer.phone_number %><br>
           <!--タグ-->
           <i class="fas fa-hashtag"></i>
           <%= @post.category%>
@@ -42,7 +44,11 @@
           <%= @post.likes.count %>
           <!--コメント件数-->
           &emsp;<i class="fas fa-comment-alt comment"></i>
-          <%= @post.post_comments.count %>
+          <%= @post.post_comments.count %><br>
+          <% if @post.customer == current_customer %>
+            <%= link_to"編集する", edit_customer_post_path(@post.id) %>
+            <%= link_to"削除する", customer_post_path(@post), method: :delete %>
+          <% end %>
           <hr>
             <% @post.post_comments.each do |post_comment| %>
               <div class="pt-4">
