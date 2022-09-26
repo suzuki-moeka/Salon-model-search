@@ -4,7 +4,8 @@
 body {
   line-height: 2;
   background-image: url("../images/bg-img-2.jpg");
-  height: 100vh;
+  min-height: 100vh;
+  position: relative;
 }
 
 .bg-img {
@@ -52,7 +53,7 @@ header a:hover,
   font-family:'ＭＳゴシック';
 }
 
-.my-5 {
+.mt-5 {
   font-family:'ＭＳゴシック';
 }
 
@@ -111,6 +112,9 @@ footer {
   background-color: #EBF6F7;
   color: #805140;
   margin-bottom: 5px;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
 }
 
 .link {
@@ -232,4 +236,8 @@ a:hover {
 
 .link3:hover {
   color: red;
+}
+
+.padding-y-footer {
+  padding: 5rem 0;
 }

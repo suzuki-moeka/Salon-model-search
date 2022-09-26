@@ -42,10 +42,6 @@ class Customer::PostsController < ApplicationController
      @posts = Post.search(params[:search_word])
   end
 
-  def update
-    @post = Post.find(params[:id])
-  end
-
   private
 
   def post_params

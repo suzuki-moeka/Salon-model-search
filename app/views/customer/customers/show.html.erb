@@ -23,7 +23,7 @@
           <div>
             メールアドレス：<%= @customer.email %>
           </div>
-          <div class="mt-4">
+          <div class="mt-4", align="center">
             <%= link_to "登録情報変更はこちら", edit_customer_customer_path(current_customer), class: "btn link" %>
           </div>
         </div>
@@ -33,7 +33,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 mx-auto">
-      <h4 class="title-border pb-4">予約一覧</h3>
+      <h4 class="title-border pb-4">予約一覧</h4>
         <div class="jumbotron bottom", style="text-align: center;">
           <% @customer_reserves.each do |customer_reserve| %>
             <%= customer_reserve.day %>&emsp;
@@ -48,8 +48,9 @@
         </div>
       </div>
     </div>
+  </div>
       <div class="container">
-        <div class="row">
+        <div class="row pb-4">
           <div class="col-md-6 mx-auto">
             <h4 class="title-border pb-4">予約履歴</h4>
             <div class="jumbotron bottom", style="text-align: center;">

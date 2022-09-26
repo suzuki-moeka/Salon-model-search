@@ -4,7 +4,7 @@
       <h4 class="title-border pb-4">
         登録情報変更
       </h4>
-        <div class="jumbotron bottom">
+        <div class="jumbotron bottom", align="center">
           <%= form_with model: @customer, url: customer_customer_path, method: :patch do |f| %>
             <div>
               <%= f.label :first_name, "氏名" %><br>
@@ -32,7 +32,7 @@
               <%= f.label :email, "メールアドレス" %><br>
               <%= f.email_field :email, autocomplete: "email" %><br>
             </div>
-            <div  class="pt-4">
+            <div  class="pt-4", align="center">
               <%= f.submit "編集内容を保存", class: "btn rounded-pill" %>
             </div>
           <% end %>

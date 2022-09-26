@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4 mx-auto">
+    <div class="col-md-8 mx-auto">
       <h4 class="title-border pb-4">
         投稿修正
       </h4>
         <div class="jumbotron bottom">
-          <%= form_with model: @post, url: customer_posts_path, method: :patch do |f| %>
+          <%= form_with model: @post, url: customer_post_path, method: :patch do |f| %>
           <div class="form-group">
             <%= f.label :title, "タイトル" %>
             <%= f.text_field :title, class: 'form-control' %>
@@ -35,7 +35,7 @@
             <%= f.label :category, "タグ" %>
             <%= f.select :category, [["サロンモデル希望", "サロンモデル希望"],["NEW OPEN", "NEW OPEN"], ["受賞歴あり", "受賞歴あり"], ["21時以降OK", "21時以降OK"], ["早朝対応可", "早朝対応可"], ["お子様同伴OK", "お子様同伴OK"], ["学生に人気", "学生に人気"], ["お手頃プライス", "お手頃プライス"]], include_blank: "選択して下さい" %>
           </div>
-          <div  class="pt-4">
+          <div  class="pt-4", align="center">
             <%= f.submit "編集内容を保存", class: "btn rounded-pill" %>
           </div>
           <% end %>
