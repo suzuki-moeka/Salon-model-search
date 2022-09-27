@@ -102,45 +102,44 @@
     <div class="row pb-4">
       <div class="col-md-11 mx-auto">
         <h4 class="title-border pb-4">投稿一覧</h4>
-        <div class="jumbotron bottom", style="text-align: center;">
           <% @posts.each do |posts| %>
-          <div>
-            <!--画像-->
-            <strong>
-              <div class="d-flex flex-column align-items-center jutify-content-around flex-sm-row justify-content-around flex-wrap">
-                <% if posts.images.attached? %>
-                  <% posts.images.each do |image| %>
-                  <div>
-                    <%= image_tag image.variant(resize: '160x160') %>
+            <div class="jumbotron bottom", style="text-align: center;">
+              <div>
+                <!--画像-->
+                <strong>
+                  <div class="d-flex flex-column align-items-center jutify-content-around flex-sm-row justify-content-around flex-wrap">
+                    <% if posts.images.attached? %>
+                      <% posts.images.each do |image| %>
+                      <div>
+                        <%= image_tag image.variant(resize: '300x300') %>
+                      </div>
+                      <% end %>
+                    <% else %>
+                      <div>
+                        <%= image_tag 'no_image.jpg', class: 'img-fluid' %>
+                      </div>
+                    <% end %>
                   </div>
-                  <% end %>
-                <% else %>
-                  <div>
-                    <%= image_tag 'no_image.jpg', class: 'img-fluid' %>
-                  </div>
-                <% end %>
+                </strong>
+                <p>
+                  <b>
+                    タイトル：<%= link_to posts.title,customer_post_path(posts.id), class: "link4" %>
+                  </b>
+                </p>
+                <p>投稿日時：<%= posts.created_at.strftime('%Y/%m/%d') %></p>
+                <p>投稿内容：<%= truncate(posts.post, omission: "...") %></p>
+                <!--タグ-->
+                <i class="fas fa-hashtag"></i>&nbsp;<%= posts.category %>
+                <!--いいね数-->
+                &emsp;<i class="fas fa-heart heart"></i>
+                <%= posts.likes.count %>
+                <!--コメント件数-->
+                &emsp;<i class="fas fa-comment-alt comment"></i>
+                <%= posts.post_comments.count %>
               </div>
-            </strong>
-            <p>
-              <b>
-                タイトル：<%= link_to posts.title,customer_post_path(posts.id), class: "link4" %>
-              </b>
-            </p>
-              <p>投稿日時：<%= posts.created_at.strftime('%Y/%m/%d') %></p>
-              <p>投稿内容：<%= truncate(posts.post, omission: "...") %></p>
-              <!--タグ-->
-              <i class="fas fa-hashtag"></i>&nbsp;<%= posts.category %>
-              <!--いいね数-->
-              &emsp;<i class="fas fa-heart heart"></i>
-              <%= posts.likes.count %>
-              <!--コメント件数-->
-              &emsp;<i class="fas fa-comment-alt comment"></i>
-              <%= posts.post_comments.count %>
-            <hr>
-          </div>
+            </div>
           <% end %>
         </div>
       </div>
     </div>
-  </div>
   <% end%>
