@@ -27,7 +27,7 @@
             <hr>
           </p>
           <!--名前-->
-          投稿者：<%= @post.customer.last_name + @post.customer.first_name %><br>
+          <b>投稿者：<%= link_to @post.customer.last_name + @post.customer.first_name, customer_customer_path(@post.customer.id), class: "link4" %></b><br>
           <!--内容-->
           <%= @post.post %><br>
           <!--金額-->
@@ -88,7 +88,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-6 mx-auto">
+    <div class="col-6 md-6 mx-auto">
         <%= form_with model: [@post, @post_comment], url: customer_post_post_comments_path(@post) do |f| %>
           <%= f.text_area :comment, :size=>"58x3", placeholder: "口コミをここに入力" %>
           <div>

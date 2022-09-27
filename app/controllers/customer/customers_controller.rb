@@ -5,8 +5,12 @@ class Customer::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @customer_reserves = current_customer.reserves.where("start_time >= ?", DateTime.current).order(day: :desc)
-    @visit_historys = current_customer.reserves.where("start_time < ?", DateTime.current).where("start_time > ?", DateTime.current << 12).order(day: :desc)
+    if params[:id].to_i == current_customer.id
+      @customer_reserves = current_customer.reserves.where("start_time >= ?", DateTime.current).order(day: :desc)
+      @visit_historys = current_customer.reserves.where("start_time < ?", DateTime.current).where("start_time > ?", DateTime.current << 12).order(day: :desc)
+    else
+      @posts = @customer.posts
+    end
   end
 
   def update

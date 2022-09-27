@@ -1,69 +1,146 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 mx-auto">
-      <h4 class="title-border pb-4">
-        My Page
-      </h4>
-        <div class="jumbotron bottom">
-          <div class="font-weight-bold">
-            登録情報
-          </div>
-          <div class="mt-2">
-            名前：<%= @customer.full_name %>
-          </div>
-          <div>
-            郵便番号：<%= @customer.postcode %>
-          </div>
-          <div>
-            住所：<%= @customer.address %>
-          </div>
-          <div>
-            電話番号：<%= @customer.phone_number %>
-          </div>
-          <div>
-            メールアドレス：<%= @customer.email %>
-          </div>
-          <div class="mt-4", align="center">
-            <%= link_to "登録情報変更はこちら", edit_customer_customer_path(current_customer), class: "btn link" %>
-          </div>
-        </div>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 mx-auto">
-      <h4 class="title-border pb-4">予約一覧</h4>
-        <div class="jumbotron bottom", style="text-align: center;">
-          <% @customer_reserves.each do |customer_reserve| %>
-            <%= customer_reserve.day %>&emsp;
-            <%= customer_reserve.time %>
-              &emsp;<%= link_to '予約キャンセル', customer_reserve_path(customer_reserve.id), method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" }, class: "link3" %>
-             <hr>
-          <% end %>
-          <% if @customer_reserves.blank? %>
-            予約はありません。
-            <hr>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-      <div class="container">
-        <div class="row pb-4">
-          <div class="col-md-6 mx-auto">
-            <h4 class="title-border pb-4">予約履歴</h4>
-            <div class="jumbotron bottom", style="text-align: center;">
-              <% @visit_historys.each do |visit_history| %>
-                <%= visit_history.day %>&emsp;
-                <%= visit_history.time %>
-                <hr>
-              <% end %>
-              <% if @visit_historys.blank? %>
-                来院履歴はありません。
-                <hr>
-              <% end %>
+<% if params[:id].to_i == current_customer.id %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <h4 class="title-border pb-4">
+          My Page
+        </h4>
+          <div class="jumbotron bottom">
+            <div class="font-weight-bold">
+              登録情報
+            </div>
+            <div class="mt-2">
+              名前：<%= @customer.full_name %>
+            </div>
+            <div>
+              郵便番号：<%= @customer.postcode %>
+            </div>
+            <div>
+              住所：<%= @customer.address %>
+            </div>
+            <div>
+              電話番号：<%= @customer.phone_number %>
+            </div>
+            <div>
+              メールアドレス：<%= @customer.email %>
+            </div>
+            <div class="mt-4", align="center">
+              <%= link_to "登録情報変更はこちら", edit_customer_customer_path(current_customer), class: "btn link" %>
             </div>
           </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <h4 class="title-border pb-4">予約一覧</h4>
+          <div class="jumbotron bottom", style="text-align: center;">
+            <% @customer_reserves.each do |customer_reserve| %>
+              <%= customer_reserve.day %>&emsp;
+              <%= customer_reserve.time %>
+                &emsp;<b><%= link_to '予約キャンセルはこちら', customer_reserve_path(customer_reserve.id), method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" }, class: "link3" %></b>
+               <hr>
+            <% end %>
+            <% if @customer_reserves.blank? %>
+              予約はありません。
+              <hr>
+            <% end %>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="container">
+      <div class="row pb-4">
+        <div class="col-md-6 mx-auto">
+          <h4 class="title-border pb-4">予約履歴</h4>
+          <div class="jumbotron bottom", style="text-align: center;">
+            <% @visit_historys.each do |visit_history| %>
+              <%= visit_history.day %>&emsp;
+              <%= visit_history.time %>
+              <hr>
+            <% end %>
+            <% if @visit_historys.blank? %>
+              予約履歴はありません。
+              <hr>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row pb-4">
+        <div class="col-md-6 mx-auto">
+          <h4 class="title-border pb-4">投稿履歴</h4>
+          <div class="jumbotron bottom", style="text-align: center;">
+            <% current_customer.posts.each do |posts| %>
+            <div>
+              <p>
+                <b>
+                  タイトル：<%= link_to posts.title,customer_post_path(posts.id) %>
+                </b>
+              </p>
+              <p>投稿内容：<%= posts.post %></p>
+              <p>投稿日時：<%= posts.created_at.strftime('%Y/%m/%d') %></p>
+              <!--タグ-->
+              <i class="fas fa-hashtag"></i>&nbsp;<%= posts.category %>
+              <!--いいね数-->
+              &emsp;<i class="fas fa-heart heart"></i>
+              <%= posts.likes.count %>
+              <!--コメント件数-->
+              &emsp;<i class="fas fa-comment-alt comment"></i>
+              <%= posts.post_comments.count %>
+              <hr>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="container">
+    <div class="row pb-4">
+      <div class="col-md-6 mx-auto">
+        <h4 class="title-border pb-4">投稿一覧</h4>
+        <div class="jumbotron bottom", style="text-align: center;">
+          <% @posts.each do |posts| %>
+          <div>
+            <!--画像-->
+            <strong>
+              <div class="d-flex flex-column align-items-center jutify-content-around flex-sm-row justify-content-around flex-wrap">
+                <% if posts.images.attached? %>
+                  <% posts.images.each do |image| %>
+                  <div>
+                    <%= image_tag image.variant(resize: '160x160') %>
+                  </div>
+                  <% end %>
+                <% else %>
+                  <div>
+                    <%= image_tag 'no_image.jpg', class: 'img-fluid' %>
+                  </div>
+                <% end %>
+              </div>
+            </strong>
+            <p>
+              <b>
+                タイトル：<%= link_to posts.title,customer_post_path(posts.id), class: "link4" %>
+              </b>
+            </p>
+              <p>投稿日時：<%= posts.created_at.strftime('%Y/%m/%d') %></p>
+              <p>投稿内容：<%= posts.post %></p>
+              <!--タグ-->
+              <i class="fas fa-hashtag"></i>&nbsp;<%= posts.category %>
+              <!--いいね数-->
+              &emsp;<i class="fas fa-heart heart"></i>
+              <%= posts.likes.count %>
+              <!--コメント件数-->
+              &emsp;<i class="fas fa-comment-alt comment"></i>
+              <%= posts.post_comments.count %>
+            <hr>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end%>
