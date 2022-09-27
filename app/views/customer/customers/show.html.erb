@@ -80,7 +80,7 @@
                   タイトル：<%= link_to posts.title,customer_post_path(posts.id) %>
                 </b>
               </p>
-              <p>投稿内容：<%= posts.post %></p>
+              <p>投稿内容：<%= truncate(posts.post, omission: "...") %></p>
               <p>投稿日時：<%= posts.created_at.strftime('%Y/%m/%d') %></p>
               <!--タグ-->
               <i class="fas fa-hashtag"></i>&nbsp;<%= posts.category %>
@@ -100,7 +100,7 @@
   <% else %>
     <div class="container">
     <div class="row pb-4">
-      <div class="col-md-6 mx-auto">
+      <div class="col-md-11 mx-auto">
         <h4 class="title-border pb-4">投稿一覧</h4>
         <div class="jumbotron bottom", style="text-align: center;">
           <% @posts.each do |posts| %>
@@ -127,7 +127,7 @@
               </b>
             </p>
               <p>投稿日時：<%= posts.created_at.strftime('%Y/%m/%d') %></p>
-              <p>投稿内容：<%= posts.post %></p>
+              <p>投稿内容：<%= truncate(posts.post, omission: "...") %></p>
               <!--タグ-->
               <i class="fas fa-hashtag"></i>&nbsp;<%= posts.category %>
               <!--いいね数-->
