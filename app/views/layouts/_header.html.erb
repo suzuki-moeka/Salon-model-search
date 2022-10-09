@@ -41,19 +41,22 @@
             <li class="list-inline-item">
               <%= link_to "新規メンバー登録", new_customer_registration_path %>
             </li>
+            <li class="list-inline-item">
+              <%= link_to "管理者専用ログイン", new_admin_session_path %>
+            </li>
           <% end %>
         </ul>
     </div>
   </nav>
 </header>
 
-<nav class="d-block d-md-none hum-menu position-fixed">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="d-block d-md-none hum-menu position-fixed navbar-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 </nav>
 
-<div class="hum-menu-content position-fixed w-100 h-100 d-none">
+<div class="hum-menu-content position-fixed w-100 h-100 d-none" id="navbarNav">
   <div class="h-100 w-100 d-flex flex-column justify-content-center align-items-center">
     <a href="/">
       <%= image_tag'logo2.png', size:"180x50" %>
@@ -94,6 +97,9 @@
           </li>
           <li class="list-inline-item font-weight-bold">
             <%= link_to "新規メンバー登録", new_customer_registration_path %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to "管理者専用ログイン", new_admin_session_path %>
           </li>
         <% end %>
       </ul>

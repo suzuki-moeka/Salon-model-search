@@ -32,7 +32,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 header {
@@ -59,7 +58,6 @@ header a:hover,
 
 .hum-menu {
   background-color: #EBF6F7;
-  background-color: #white;
   top: 10px;
   right: 10px;
   z-index: 9999;
@@ -68,11 +66,6 @@ header a:hover,
 
 .navbar-toggler {
   border-color: #805140;
-
-}
-
-.navbar-toggler-icon {
-  color: #805140;
 }
 
 .hum-menu-content {
