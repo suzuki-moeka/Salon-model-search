@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       end
     end
     resources :customers, only: [:edit, :show, :update]
+    get "/unsubscribe" => "customers#unsubscribe"
+    patch "/withdrawal" => "customers#withdrawal"
   end
 
   namespace :admin do
@@ -36,5 +38,4 @@ Rails.application.routes.draw do
   get "customer/homes/about" => "customer/homes#about"
   get "searches" => "customer/searches#search"
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

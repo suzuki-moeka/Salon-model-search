@@ -7,6 +7,10 @@ class Customer < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :reserves
 
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+
   def self.guest
     find_or_create_by!(email: 'aaa@aaa.com') do |customer|
       customer.password = SecureRandom.urlsafe_base64
