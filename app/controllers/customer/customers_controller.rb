@@ -21,11 +21,11 @@ class Customer::CustomersController < ApplicationController
       render 'edit'
     end
   end
-  
+
   def unsubscribe
     @customer = Customer.find_by(email: params[:email])
   end
-  
+
   def withdrawal
     @customer = current_customer
     @customer.update(is_deleted: true)

@@ -14,11 +14,10 @@
   <body background="bg-img-3.jpg">
     <%= render "layouts/header" %>
     <div class="alert">
-      <% if flash[:alert].present? %>
+      <% if flash[:alert] %>
         <p><%= flash[:alert] %></p>
       <% end %>
     </div>
-
     <div class="padding-y-footer mt-5">
       <%= yield %>
     </div>

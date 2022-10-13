@@ -47,7 +47,6 @@
             <% end %>
             <% if @customer_reserves.blank? %>
               予約はありません。
-              <hr>
             <% end %>
           </div>
         </div>
@@ -65,7 +64,6 @@
             <% end %>
             <% if @visit_historys.blank? %>
               予約履歴はありません。
-              <hr>
             <% end %>
           </div>
         </div>
@@ -96,12 +94,15 @@
               <hr>
             </div>
             <% end %>
+            <% if current_customer.posts.blank? %>
+              投稿履歴はありません。
+            <% end %>
           </div>
         </div>
       </div>
     </div>
   <% else %>
-    <div class="container">
+  <div class="container">
     <div class="row pb-4">
       <div class="col-md-11 mx-auto">
         <h4 class="title-border pb-4">投稿一覧</h4>
