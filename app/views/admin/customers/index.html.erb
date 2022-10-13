@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4 mx-auto">
+    <div class="col-md-8 mx-auto">
       <h4>
         メンバー　一覧
       </h4>
@@ -9,7 +9,7 @@
 </div>
  <div class="container">
   <div class="row">
-    <div class="col-md-4 mx-auto">
+    <div class="col-md-8 mx-auto">
      <div class="d-flex align-items-center">
        <table class="table table-striped">
         <thead>
@@ -17,6 +17,7 @@
             <th scope="col">ID</th>
             <th scope="col">名前</th>
             <th scope="col">アドレス</th>
+            <th scope="col">ステータス</th>
           </tr>
         </thead>
           <tbody>
@@ -32,6 +33,13 @@
                 </td>
                 <td>
                   <%= customer.email %>
+                </td>
+                <td>
+                  <% if customer.is_deleted == true %>
+                    <span class="text-secondary" ><strong>退会</strong></span>
+                  <% else %>
+                    <span class="text-success" ><strong>有効</strong></span>
+                  <% end %>
                 </td>
               </tr>
             <% end %>
