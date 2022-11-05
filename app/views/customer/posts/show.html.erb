@@ -45,11 +45,17 @@
           <!--コメント件数-->
           &emsp;<i class="fas fa-comment-alt comment"></i>
           <%= @post.post_comments.count %><br>
+          <!--カスタマー投稿削除-->
           <% if @post.customer == current_customer %>
             <%= link_to"編集する", edit_customer_post_path(@post.id) %>
             <%= link_to"削除する", customer_post_path(@post), method: :delete %>
           <% end %>
           <hr>
+          <!--管理者投稿削除-->
+          <% if admin_signed_in? %>
+            <%= link_to "削除する", customer_post_path(@post), method: :delete %>
+            <hr>
+          <% end %>
             <% @post.post_comments.each do |post_comment| %>
               <div class="pt-4">
                 <!--コメント-->
