@@ -1,4 +1,5 @@
 class Customer::PostsController < ApplicationController
+  before_action :ensure_user, only: [:edit, :update, :destroy]
   def new
     @post = Post.new
   end
@@ -46,5 +47,11 @@ class Customer::PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :price, :post, :timedate, :category, images: [])
+  end
+  
+  def ensure_user
+    @posts = current_customer.posts
+    @post = @posts.find_by(id: params[:id])
+    redirect_to new_customer_post_path unless @post
   end
 end
