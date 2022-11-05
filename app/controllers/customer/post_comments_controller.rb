@@ -4,14 +4,23 @@ class Customer::PostCommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    comment = @post.post_comments.new(post_comment_params)
+    comment = @post.post_comments.new(postcomment_params)
     comment.customer_id = current_customer.id
     comment.save
     redirect_to customer_post_path(@post)
   end
-  
+
   def edit
-    @post = Post.find(params[:id])
+    @postcomment = PostComment.find(params[:id])
+  end
+
+  def update
+    @postcomment = PostComment.find(params[:id])
+    if @postcomment.update(postcomment_params)
+      redirect_to customer_post_path(params[:post_id])
+    else
+      render "edit"
+    end
   end
 
   def destroy
@@ -21,16 +30,16 @@ class Customer::PostCommentsController < ApplicationController
 
   private
 
-  def post_comment_params
+  def postcomment_params
     params.require(:post_comment).permit(:comment)
   end
 
   def set_postcomment
-      @post = Post.find(params[:id])
+      @postcomment = PostComment.find(params[:id])
   end
 
   def prevent_url
-    if @post.customer_id != current_customer.id
+    if @postcomment.customer_id != current_customer.id
       redirect_to root_path
     end
   end

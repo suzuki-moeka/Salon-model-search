@@ -51,6 +51,10 @@ class Customer::PostsController < ApplicationController
     params.require(:post).permit(:title, :price, :post, :timedate, :category, images: [])
   end
 
+  def postcomment_params
+    params.require(:post_comment).permit(:comment)
+  end
+
   def set_post
       @post = Post.find(params[:id])
   end

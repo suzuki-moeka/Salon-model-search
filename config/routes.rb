@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :customer do
     resources :reserves, only: [:index, :new, :show, :create, :destroy]
     resources :posts do
-      resources :post_comments, only: [:create, :destroy]
+      resources :post_comments, only: [:create, :edit, :update, :destroy]
       resource :likes, only: [:create, :destroy]
       collection do
         get :search_post
