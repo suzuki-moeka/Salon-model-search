@@ -1,4 +1,7 @@
 class Customer::PostsController < ApplicationController
+  before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :prevent_url, only: [:edit, :update, :destroy]
+
   def new
     @post = Post.new
   end
@@ -46,5 +49,15 @@ class Customer::PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :price, :post, :timedate, :category, images: [])
+  end
+
+  def set_post
+      @post = Post.find(params[:id])
+  end
+
+  def prevent_url
+    if @post.customer_id != current_customer.id
+      redirect_to root_path
+    end
   end
 end
