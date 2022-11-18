@@ -1,55 +1,56 @@
-<div class="jumbotron bottom">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <% posts.each do |post| %>
-        <!--画像-->
-        <strong>
-          <div class="d-flex flex-column align-items-center jutify-content-around flex-sm-row justify-content-around flex-wrap">
-            <% if post.images.attached? %>
-              <% post.images.each do |image| %>
-              <div>
-                <%= image_tag image.variant(resize: '160x160') %>
-              </div>
+<% posts.each do |post| %>
+  <div class="jumbotron bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+
+          <!--画像-->
+          <strong>
+            <div class="d-flex flex-column align-items-center jutify-content-around flex-sm-row justify-content-around flex-wrap">
+              <% if post.images.attached? %>
+                <% post.images.each do |image| %>
+                <div>
+                  <%= image_tag image.variant(resize: '160x160') %>
+                </div>
+                <% end %>
+              <% else %>
+                <div>
+                  <%= image_tag 'no_image.jpg', class: 'img-fluid' %>
+                </div>
               <% end %>
-            <% else %>
-              <div>
-                <%= image_tag 'no_image.jpg', class: 'img-fluid' %>
-              </div>
-            <% end %>
+            </div>
+          </strong>
+          <!--いいね-->
+          <div class="text-right">
+            <div id="favorite_buttons_<%= post.id %>">
+              <%= render "customer/posts/like", post: post %>
+            </div>
           </div>
-        </strong>
-        <!--いいね-->
-        <div class="text-right">
-          <div id="favorite_buttons_<%= post.id %>">
-            <%= render "customer/posts/like", post: post %>
+          <!--title-->
+          <div class="title">
+            <p class="font-weight-bold"><%= post.title %></p>
+          </div>
+          <!--内容-->
+          <%= truncate(post.post, omission: "...") %><br>
+          <!--金額-->
+          金額 <font color="red">￥<%= post.price %></font><br>
+          <!--希望日時-->
+          日時：<%= post.timedate %><br>
+          <!--タグ-->
+          <i class="fas fa-hashtag"></i>&nbsp;<%= post.category %>
+          <!--いいね数-->
+          &emsp;<i class="fas fa-heart heart"></i>
+          <%= post.likes.count %>
+          <!--コメント件数-->
+          &emsp;<i class="fas fa-comment-alt comment"></i>
+          <%= post.post_comments.count %>
+          <!--詳細へ-->
+          <div class="btn float-right">
+            <%= link_to"詳細を見る", customer_post_path(post.id), class: "link" %>
           </div>
         </div>
-        <!--title-->
-        <div class="title">
-          <p class="font-weight-bold"><%= post.title %></p>
-        </div>
-        <!--内容-->
-        <%= truncate(post.post, omission: "...") %><br>
-        <!--金額-->
-        金額 <font color="red">￥<%= post.price %></font><br>
-        <!--希望日時-->
-        日時：<%= post.timedate %><br>
-        <!--タグ-->
-        <i class="fas fa-hashtag"></i>&nbsp;<%= post.category %>
-        <!--いいね数-->
-        &emsp;<i class="fas fa-heart heart"></i>
-        <%= post.likes.count %>
-        <!--コメント件数-->
-        &emsp;<i class="fas fa-comment-alt comment"></i>
-        <%= post.post_comments.count %>
-        <!--詳細へ-->
-        <div class="btn float-right">
-          <%= link_to"詳細を見る", customer_post_path(post.id), class: "link" %>
-        </div>
-        <% end %>
       </div>
     </div>
   </div>
-</div>
+<% end %>
 <%= paginate posts, theme: 'bootstrap-5', class: "link2" %>
