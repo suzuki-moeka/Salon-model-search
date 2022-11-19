@@ -6,8 +6,11 @@ class Customer::PostCommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     comment = @post.post_comments.new(postcomment_params)
     comment.customer_id = current_customer.id
-    comment.save
-    redirect_to customer_post_path(@post)
+    if comment.save
+      redirect_to customer_post_path(@post)
+    else
+      redirect_to customer_post_path(@post)
+    end
   end
 
   def edit
