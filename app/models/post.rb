@@ -4,8 +4,6 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_customers, through: :likes, source: :customer
   has_many :post_comments, dependent: :destroy
-  
-  validates :comment, presence: true
 
   def full_name
     "#{last_name} #{first_name}"
